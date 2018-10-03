@@ -278,6 +278,10 @@ import _, {debounce} from 'lodash';
       justifyContent: 'center',
       paddingVertical: 2,
       flexDirection: 'row',
+      position: 'absolute',
+      left: 0,
+      right: 0,
+      bottom: 0,
     },
 
     sContainer: {

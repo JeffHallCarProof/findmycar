@@ -35,10 +35,10 @@ import {
 
       return ( 
         <View style={styles.container}>
-          <View style={styles.container}>
+          <View style={styles.tContainer}>
           <Text>Budget + Class Selection Screen</Text>
-
-
+          </View>
+          <View style={styles.bcontainer}>
           
             <View style={styles.dropDownView}>
               <ModalDropdown dropdownStyle={styles.dropDownList} textStyle={styles.dropDownText} dropdownTextStyle={styles.optionText} 
@@ -51,8 +51,13 @@ import {
               ]}
               />
             </View>
-          </View>
-            <View style={styles.bcontainer}>
+            </View>
+          
+            <View style={styles.buttonContainer}>
+              <Button
+                title = 'Go back'
+                onPress={_.debounce(() => {this._onPress(1)},400)}
+              />
               <TouchableHighlight
                 underlayColor={'#0018A8'}
                 style={styles.button}
@@ -60,11 +65,6 @@ import {
               >
                 <Text style={styles.btext}> Confirm </Text>
               </TouchableHighlight>
-
-          <Button
-            title = 'Go back'
-            onPress={_.debounce(() => {this._onPress(1)},400)}
-          />
           </View>
         </View>
       ); //End of return
@@ -94,6 +94,14 @@ import {
     contentContainer: {
       paddingTop: 30
     },
+    tContainer: {
+      backgroundColor: 'white',
+      alignItems: 'center',
+      justifyContent: 'center',
+      flexDirection: 'row',
+      paddingBottom: 40,
+      paddingTop: 80
+    },
 
     bcontainer: {
       flex: 1,
@@ -106,7 +114,15 @@ import {
     btext: {
       color: 'white'
     },
-
+    buttonContainer: {
+      paddingBottom: 15,
+      paddingTop: 30,
+      backgroundColor: 'white',
+      alignItems: 'center',
+      justifyContent: 'center',
+      paddingVertical: 2,
+      flexDirection: 'row',
+    },
     button: {
       alignItems: 'center',
       backgroundColor: '#1294EF',
@@ -163,6 +179,7 @@ import {
     selectedOption: {
       fontWeight: 'bold',
       backgroundColor: '#adb2ba'
-    }
+    },
+
 
   });
