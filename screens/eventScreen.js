@@ -116,7 +116,7 @@ export default class eventScreen extends React.Component {
       
       else
       {    
-        this.props.navigation.navigate("Results", {disabled:false, eId: eventId})
+        this.props.navigation.navigate("Info", {disabled:false, eId: eventId})
       } 
       
     },1000,{leading:true, trailing:false}); //End of button function

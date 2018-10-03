@@ -13,11 +13,17 @@ import {
 import { createStackNavigator } from 'react-navigation';
 import eventScreen from './screens/eventScreen';
 import welcomeScreen from './screens/welcomeScreen';
+import pScreen from './screens/pScreen';
+import infoScreen from './screens/infoScreen';
+import resultsScreen from './screens/resultsScreen';
 
 const RootStack = createStackNavigator(
   {
     Welcome: welcomeScreen,
     Events: eventScreen,
+    Info: infoScreen,
+    Preferences: pScreen,
+    Results: resultsScreen
   },
   {
     initialRouteName: 'Welcome',
