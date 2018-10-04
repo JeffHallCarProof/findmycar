@@ -32,7 +32,6 @@ import { LinearGradient } from 'expo';
       const { navigation } = this.props;
       this.timeoutHandle = setTimeout(()=>{this.props.navigation.navigate('Events')}, 2500);
       
-
       return (
 
       <View style={styles.welcomeContainer} onTouchStart={this.onPress}>
