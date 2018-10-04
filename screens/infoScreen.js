@@ -35,16 +35,18 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider';
       
       const { navigation } = this.props;
       const eventId = navigation.getParam('eId', 'Invalid');
+      var min = this.state.values[0];
+      var max = this.state.values[1];
 
       return ( 
         <View style={styles.container}>
 
-          <View style={styles.sliderLabelView3}>
-            <Text style={styles.infoText}>Select your desired vehicle class and set your budget below</Text>
-          </View>
-
           <View style={styles.bcontainer}>
           
+            <View style={styles.sliderLabelView3}>
+              <Text style={styles.infoText}>Select your desired vehicle class and set your budget below</Text>
+            </View>
+
             <View style={styles.dropDownView}>
               <ModalDropdown dropdownStyle={styles.dropDownList} textStyle={styles.dropDownText} dropdownTextStyle={styles.optionText} 
               dropdownTextHighlightStyle={styles.selectedOption} defaultValue="Vehicle Class..." 
@@ -91,12 +93,12 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider';
 
             <Button
               title = 'Go back'
-              onPress={_.debounce(() => {this._onPress(1)},400)}
+              onPress={_.debounce(() => {this._onPress(1, min, max)},400)}
             />
             <TouchableHighlight
               underlayColor={'#0018A8'}
               style={styles.button}
-              onPress={_.debounce(() => {this._onPress(0)},400)}
+              onPress={_.debounce(() => {this._onPress(0, min, max)},400)}
             >
               <Text style={styles.btext}> Confirm </Text>
             </TouchableHighlight>
@@ -107,13 +109,13 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider';
     } //End of render
 
     // set up functions as below but add debounce
-    _onPress =_.throttle((bId) =>{ 
+    _onPress =_.throttle((bId, min, max) =>{ 
       this.state.disabled=true   
 
       if(JSON.stringify(bId)==1){
         this.props.navigation.navigate('Events')
       } else{
-        this.props.navigation.navigate('Preferences')
+        this.props.navigation.navigate('Preferences', {min, max})
       }
       
     },1000,{leading:true, trailing:false});
@@ -227,7 +229,7 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider';
 
     sliderLabelView3: {
       alignItems: "center",
-      paddingTop: 100,
+      paddingBottom: 100,
       paddingLeft: 20,
       paddingRight: 20
     },
