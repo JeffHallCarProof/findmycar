@@ -292,7 +292,7 @@ import _, {debounce} from 'lodash';
     },
 
     buttonContainer: {
-      paddingBottom: 10,
+      paddingBottom: 30,
       paddingTop: 10,
       backgroundColor: 'white',
       alignItems: 'center',

@@ -306,8 +306,7 @@ const styles = StyleSheet.create({
       backgroundColor: '#8FCAF3',
       height: 45,
       borderTopWidth: 1,
-      borderColor: '#1653bc',
-
+      borderColor: '#1653bc'
     },
 
     Progressbutton: {
@@ -318,8 +317,6 @@ const styles = StyleSheet.create({
       left: 0,
       right: 0,
       bottom: 0,
-      paddingLeft: 0,
-      paddingRight: 0,
       backgroundColor: '#8FCAF3',
       height: 45,
     },
