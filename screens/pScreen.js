@@ -307,16 +307,16 @@ import _, {debounce} from 'lodash';
     buttonS: {
       alignItems: 'center',
       backgroundColor: '#1294EF',
-      width: 95,
-      height: 95,
+      width: 105,
+      height: 105,
       
     },
         
     buttonT: {
       alignItems: 'center',
       backgroundColor: '#0018A8',
-      width: 100,
-      height: 100,
+      width: 120,
+      height: 120,
       
     },
 
