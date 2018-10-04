@@ -19,30 +19,21 @@ import _, {debounce} from 'lodash';
     state = {
       text: false,
       p1: false,
-      v1: 0,
       p2: false,
-      v2: 0,
       p3: false,
-      v3: 0,
       p4: false,
-      v4: 0,
       p5: false,
-      v5: 0,
       p6: false,
-      v6: 0,
       p7: false,
-      v7: 0,
       p8: false,
-      v8: 0,
       p9: false,
-      v9: 0,
       p10: false,
-      v10: 0,
       p11: false,
-      v11: 0,
       p12: false,
-      v12: 0,
-      value: 0.01,
+      p13: false,
+      p14: false,
+      p15: false,
+      p16: false,
       disabled: false
     }
 
@@ -59,153 +50,157 @@ import _, {debounce} from 'lodash';
 
         <View style={styles.tContainer}>
           <Text>Preference Assesment</Text>
+          
         </View>
           <View style={styles.bcontainer}>
-            <TouchableHighlight
-                selected={this.state.p1}
-                selectedN={this.state.v1}
+          <TouchableHighlight
                 underlayColor={'#0018A8'}
-                style={[styles.button, this.state.p1 && styles.buttonS]}
-                onPress={() => this.setState({ p1: !this.state.p1,
-                value: this.state.v1,
-                text: !this.state.p1,
-                p2: false,
-                p3: false,
-                p4: false,
-                p5: false,
-                p6: false,
-                p7: false,
-                p8: false})}>
+                style={[styles.button, this.state.p1 && styles.buttonS, this.state.p2 && styles.buttonT]}
+                onPress={() =>{
+                if(this.state.p1==true){
+                  this.setState({
+                    p1:!this.state.p1,
+                    p2: !this.state.p2,})
+                }if(this.state.p2==true){
+                  this.setState({
+                    p2:!this.state.p2,})
+                }else{
+                  this.setState({
+                    p1: true,})
+                  }}}>
+                
                 <Text style={styles.btext}> Comfort </Text>
             </TouchableHighlight>
             <Text> </Text>
             <TouchableHighlight
-                selected={this.state.p2}
-                selectedN={this.state.v2}
                 underlayColor={'#0018A8'}
-                style={[styles.button, this.state.p2 && styles.buttonS]}
-                onPress={() => this.setState({ p2: !this.state.p2,
-                value: this.state.v2,
-                text: !this.state.p2,
-                p1: false,
-                p3: false,
-                p4: false,
-                p5: false,
-                p6: false,
-                p7: false,
-                p8: false})}>
-                <Text style={styles.btext}> Exterior Design </Text>
-            </TouchableHighlight>
-            <Text> </Text>
-            <TouchableHighlight
-                selected={this.state.p3}
-                selectedN={this.state.v3}
-                underlayColor={'#0018A8'}
-                style={[styles.button, this.state.p3 && styles.buttonS]}
-                onPress={() => this.setState({ p3: !this.state.p3,
-                value: this.state.v3,
-                text: !this.state.p3,
-                p2: false,
-                p1: false,
-                p4: false,
-                p5: false,
-                p6: false,
-                p7: false,
-                p8: false})}>
-                <Text style={styles.btext}> Interior Design </Text>
+                style={[styles.button, this.state.p3 && styles.buttonS, this.state.p4 && styles.buttonT]}
+                onPress={() =>{
+                if(this.state.p3==true){
+                  this.setState({
+                    p3:!this.state.p3,
+                    p4: !this.state.p4,})
+                }if(this.state.p4==true){
+                  this.setState({
+                    p4:!this.state.p4,})
+                }else{
+                  this.setState({
+                    p3: true,})
+                  }}}>
+                <Text style={styles.btext}> Exterior  Design </Text>
             </TouchableHighlight>
             </View>
             
             <View style={styles.bcontainer}>
             <TouchableHighlight
-                selected={this.state.p4}
-                selectedN={this.state.v4}
                 underlayColor={'#0018A8'}
-                style={[styles.button, this.state.p4 && styles.buttonS]}
-                onPress={() => this.setState({ p4: !this.state.p4,
-                value: this.state.v4,
-                text: !this.state.p4,
-                p2: false,
-                p3: false,
-                p1: false,
-                p5: false,
-                p6: false,
-                p7: false,
-                p8: false})}>
-                <Text style={styles.btext}> Reliability </Text>
+                style={[styles.button, this.state.p5 && styles.buttonS, this.state.p6 && styles.buttonT]}
+                onPress={() =>{
+                if(this.state.p5==true){
+                  this.setState({
+                    p5:!this.state.p5,
+                    p6: !this.state.p6,})
+                }if(this.state.p6==true){
+                  this.setState({
+                    p6:!this.state.p6,})
+                }else{
+                  this.setState({
+                    p5: true,})
+                  }}}>
+                <Text style={styles.btext}> Interior Design </Text>
             </TouchableHighlight>
             <Text> </Text>
             <TouchableHighlight
-                selected={this.state.p5}
-                v5={this.state.v5}
                 underlayColor={'#0018A8'}
-                style={[styles.button, this.state.p5 && styles.buttonS]}
-                onPress={() => this.setState({ p5: !this.state.p5,
-                value: this.state.v5,
-                text: !this.state.p5,
-                p2: false,
-                p3: false,
-                p4: false,
-                p1: false,
-                p6: false,
-                p7: false,
-                p8: false})}>
+                style={[styles.button, this.state.p7 && styles.buttonS, this.state.p8 && styles.buttonT]}
+                onPress={() =>{
+                if(this.state.p7==true){
+                  this.setState({
+                    p7:!this.state.p7,
+                    p8: !this.state.p8,})
+                }if(this.state.p8==true){
+                  this.setState({
+                    p8:!this.state.p8,})
+                }else{
+                  this.setState({
+                    p7: true,})
+                  }}}>
+                <Text style={styles.btext}> Reliability </Text>
+            </TouchableHighlight>
+            </View>
+            
+            <View style={styles.bcontainer}>
+            <TouchableHighlight
+                underlayColor={'#0018A8'}
+                style={[styles.button, this.state.p9 && styles.buttonS, this.state.p10 && styles.buttonT]}
+                onPress={() =>{
+                if(this.state.p9==true){
+                  this.setState({
+                    p9:!this.state.p9,
+                    p10: !this.state.p10,})
+                }if(this.state.p10==true){
+                  this.setState({
+                    p10:!this.state.p10,})
+                }else{
+                  this.setState({
+                    p9: true,})
+                  }}}>
                 <Text style={styles.btext}> Fuel Eco </Text>
             </TouchableHighlight>
             <Text> </Text>
             <TouchableHighlight
-                selected={this.state.p6}
-                selectedN={this.state.v6}
                 underlayColor={'#0018A8'}
-                style={[styles.button, this.state.p6 && styles.buttonS]}
-                onPress={() => this.setState({ p6: !this.state.p6,
-                value: this.state.v6,
-                text: !this.state.p6,
-                p2: false,
-                p3: false,
-                p4: false,
-                p5: false,
-                p1: false,
-                p7: false,
-                p8: false})}>
+                style={[styles.button, this.state.p11 && styles.buttonS, this.state.p12 && styles.buttonT]}
+                onPress={() =>{
+                if(this.state.p11==true){
+                  this.setState({
+                    p11:!this.state.p11,
+                    p12: !this.state.p12,})
+                }if(this.state.p12==true){
+                  this.setState({
+                    p12:!this.state.p12,})
+                }else{
+                  this.setState({
+                    p11: true,})
+                  }}}>
                 <Text style={styles.btext}> Fun to Drive </Text>
             </TouchableHighlight>
             </View>
 
             <View style={styles.bcontainer}>
             <TouchableHighlight
-                selected={this.state.p7}
-                selectedN={this.state.v7}
                 underlayColor={'#0018A8'}
-                style={[styles.button, this.state.p7 && styles.buttonS]}
-                onPress={() => this.setState({ p7: !this.state.p7,
-                value: this.state.v7,
-                text: !this.state.p7,
-                p2: false,
-                p3: false,
-                p4: false,
-                p5: false,
-                p6: false,
-                p1: false,
-                p8: false})}>
+                style={[styles.button, this.state.p13 && styles.buttonS, this.state.p14 && styles.buttonT]}
+                onPress={() =>{
+                if(this.state.p13==true){
+                  this.setState({
+                    p13:!this.state.p13,
+                    p14: !this.state.p14,})
+                }if(this.state.p14==true){
+                  this.setState({
+                    p14:!this.state.p14,})
+                }else{
+                  this.setState({
+                    p13: true,})
+                  }}}>
                 <Text style={styles.btext}> Performance </Text>
             </TouchableHighlight>
             <Text> </Text>
             <TouchableHighlight
-                selected={this.state.p8}
-                selectedN={this.state.v8}
                 underlayColor={'#0018A8'}
-                style={[styles.button, this.state.p8 && styles.buttonS]}
-                onPress={() => this.setState({ p8: !this.state.p8,
-                value: this.state.v8,
-                text: !this.state.p8,
-                p2: false,
-                p3: false,
-                p4: false,
-                p5: false,
-                p6: false,
-                p7: false,
-                p1: false})}>
+                style={[styles.button, this.state.p15 && styles.buttonS, this.state.p16 && styles.buttonT]}
+                onPress={() =>{
+                if(this.state.p15==true){
+                  this.setState({
+                    p15:!this.state.p15,
+                    p16: !this.state.p16,})
+                }if(this.state.p16==true){
+                  this.setState({
+                    p16:!this.state.p16,})
+                }else{
+                  this.setState({
+                    p15: true,})
+                  }}}>
                 <Text style={styles.btext}> Build Quality </Text>
             </TouchableHighlight>
             </View>
@@ -301,18 +296,30 @@ import _, {debounce} from 'lodash';
     button: {
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundColor: '#1294EF',
-      borderRadius: 4,
-      width: 115,
-      height: 100,
+      backgroundColor: '#8FCAF3',
+      borderRadius: 200,
+      width: 100,
+      height: 60,
       borderColor: '#1653bc',
       borderWidth: 1,
     },
     
     buttonS: {
       alignItems: 'center',
-      backgroundColor: '#0018A8',
+      backgroundColor: '#1294EF',
+      width: 115,
+      height: 100,
+      
     },
+        
+    buttonT: {
+      alignItems: 'center',
+      backgroundColor: '#0018A8',
+      width: 160,
+      height: 140,
+      
+    },
+
 
     buttonConfirm: {
       alignItems: 'center',
