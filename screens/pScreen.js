@@ -266,8 +266,8 @@ import _, {debounce} from 'lodash';
     },
 
     buttonContainer: {
-      paddingBottom: 15,
-      paddingTop: 30,
+      paddingBottom: 10,
+      paddingTop: 10,
       backgroundColor: 'white',
       alignItems: 'center',
       justifyContent: 'center',
@@ -298,8 +298,8 @@ import _, {debounce} from 'lodash';
       justifyContent: 'center',
       backgroundColor: '#8FCAF3',
       borderRadius: 200,
-      width: 100,
-      height: 60,
+      width: 90,
+      height: 90,
       borderColor: '#1653bc',
       borderWidth: 1,
     },
@@ -308,7 +308,7 @@ import _, {debounce} from 'lodash';
       alignItems: 'center',
       backgroundColor: '#1294EF',
       width: 115,
-      height: 100,
+      height: 115,
       
     },
         
@@ -316,7 +316,7 @@ import _, {debounce} from 'lodash';
       alignItems: 'center',
       backgroundColor: '#0018A8',
       width: 160,
-      height: 140,
+      height: 160,
       
     },
 
