@@ -106,8 +106,8 @@ import ProgressBar from 'react-native-progress/Bar';
                 <Text style={styles.colText}> Overall </Text>
                 <ProgressBar progress={0.9} unfilledColor={'#c8c9d1'} height={18} color={'#0018A8'} borderRadius={4}/>
               </View>
-
             </View>
+
             <View style={styles.colContainer}>
               <View style={styles.topContainer}>
                 <View style={styles.carTitleContainer}>
@@ -154,8 +154,8 @@ import ProgressBar from 'react-native-progress/Bar';
                 <Text style={styles.colText}> Overall </Text>
                 <ProgressBar progress={0.9} unfilledColor={'#c8c9d1'} height={18} color={'#0018A8'} borderRadius={4}/>
               </View>
-
             </View>
+
             <View style={styles.colContainer}>
               <View style={styles.topContainer}>
                 <View style={styles.carTitleContainer}>
