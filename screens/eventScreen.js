@@ -43,7 +43,7 @@ export default class eventScreen extends React.Component {
               <TouchableHighlight
                 underlayColor={'#0018A8'}
                 style={styles.button}
-                onPress={_.debounce(() => {this._onPress(1,0)},400)}
+                onPress={_.debounce(() => {this._onPress(1)},400)}
               >
                 <Text style={styles.btext}> Event1 </Text>
               </TouchableHighlight>
@@ -52,7 +52,7 @@ export default class eventScreen extends React.Component {
               <TouchableHighlight
                 underlayColor={'#0018A8'}
                 style={styles.button}
-                onPress={_.debounce(() => {this._onPress(2,0)},400)}
+                onPress={_.debounce(() => {this._onPress(2)},400)}
               >
                 <Text style={styles.btext}> Event2 </Text>
               </TouchableHighlight>
@@ -61,19 +61,19 @@ export default class eventScreen extends React.Component {
               <TouchableHighlight
                 underlayColor={'#0018A8'}
                 style={styles.button}
-                onPress={_.debounce(() => {this._onPress(3,0)},400)}
+                onPress={_.debounce(() => {this._onPress(3)},400)}
               >
                 <Text style={styles.btext}> Event3 </Text>
               </TouchableHighlight>
 
             </View>
 
-            <View style={styles.bcontainer}>
+            <View style={styles.bcontainer2}>
 
               <TouchableHighlight
                 underlayColor={'#0018A8'}
                 style={styles.button}
-                onPress={_.debounce(() => {this._onPress(4,0)},400)}
+                onPress={_.debounce(() => {this._onPress(4)},400)}
               >
                 <Text style={styles.btext}> Event4 </Text>
               </TouchableHighlight>              
@@ -81,7 +81,7 @@ export default class eventScreen extends React.Component {
               <TouchableHighlight
                 underlayColor={'#0018A8'}
                 style={styles.button}
-                onPress={_.debounce(() => {this._onPress(5,0)},400)}
+                onPress={_.debounce(() => {this._onPress(5)},400)}
               >
                 <Text style={styles.btext}> Event5 </Text>
               </TouchableHighlight>
@@ -89,36 +89,19 @@ export default class eventScreen extends React.Component {
               <TouchableHighlight
                 underlayColor={'#0018A8'}
                 style={styles.button}
-                onPress={_.debounce(() => {this._onPress(6,0)},400)}
+                onPress={_.debounce(() => {this._onPress(6)},400)}
               >
                 <Text style={styles.btext}> Other </Text>
               </TouchableHighlight>  
             </View>       
 
-            <View style={styles.buttonContainer}>
-              <Button
-                title="Go back"
-                onPress={_.debounce(() => {this._onPress(0,1)},400)}
-              />
-            </View>
-
           </View> 
       ); //End of return
     } //End of render
 
-    _onPress =_.throttle((eventId, bId) =>{ 
-      this.state.disabled=true
-
-      if(JSON.stringify(bId)==1)
-      {
-        this.props.navigation.navigate("Welcome", {disabled:false, eId: eventId })
-      }
-      
-      else
-      {    
-        this.props.navigation.navigate("Info", {disabled:false, eId: eventId})
-      } 
-      
+    _onPress =_.throttle((eventId) =>{ 
+      this.state.disabled=true  
+      this.props.navigation.navigate("Info", {disabled:false, eId: eventId})
     },1000,{leading:true, trailing:false}); //End of button function
 
   } //End of class
@@ -143,10 +126,14 @@ export default class eventScreen extends React.Component {
       paddingVertical: 2,
       flexDirection: 'row',
     },
-    
-    buttonContainer: {
-      paddingBottom: 20,
-      paddingTop: 180,
+
+    bcontainer2: {
+      backgroundColor: 'white',
+      alignItems: 'center',
+      justifyContent: 'center',
+      paddingVertical: 2,
+      flexDirection: 'row',
+      paddingBottom: 250
     },
 
     btext: {
