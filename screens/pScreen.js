@@ -319,6 +319,7 @@ import _, {debounce} from 'lodash';
       justifyContent: 'center'
     },
 
+    //Default style of preference buttons, 1st level of preference
     button: {
       alignItems: 'center',
       justifyContent: 'center',
@@ -330,6 +331,7 @@ import _, {debounce} from 'lodash';
       borderWidth: 1
     },
     
+    //Styling for 2nd level of preference
     buttonS: {
       alignItems: 'center',
       backgroundColor: '#1294EF',
@@ -337,6 +339,7 @@ import _, {debounce} from 'lodash';
       height: 105
     },
         
+    //Styling for 3rd level of preference
     buttonT: {
       alignItems: 'center',
       backgroundColor: '#0018A8',
