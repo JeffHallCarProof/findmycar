@@ -39,6 +39,7 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider';
       var max = this.state.values[1];
 
       return ( 
+
         <View style={styles.container}>
 
           <View style={styles.bcontainer}>
@@ -105,6 +106,7 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider';
 
           </View>
         </View>
+        
       ); //End of return
     } //End of render
 

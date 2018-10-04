@@ -44,6 +44,7 @@ import _, {debounce} from 'lodash';
       const max = navigation.getParam('max');
 
       return (
+
         <View style={styles.container}>
 
           <View style={styles.tContainer}>
@@ -71,9 +72,7 @@ import _, {debounce} from 'lodash';
               }}
             >
               <Text style={styles.btext}> Comfort </Text>
-            </TouchableHighlight>
-
-            <Text> </Text>
+            </TouchableHighlight><Text> </Text>
 
             <TouchableHighlight
               underlayColor={'#0018A8'}
@@ -117,9 +116,7 @@ import _, {debounce} from 'lodash';
               }}
             >
               <Text style={styles.btext}>Interior  Design </Text>
-            </TouchableHighlight>
-
-            <Text> </Text>
+            </TouchableHighlight><Text> </Text>
 
             <TouchableHighlight
               underlayColor={'#0018A8'}
@@ -163,9 +160,7 @@ import _, {debounce} from 'lodash';
               }}
             >
               <Text style={styles.btext}> Fuel Eco </Text>
-            </TouchableHighlight>
-
-            <Text> </Text>
+            </TouchableHighlight><Text> </Text>
 
             <TouchableHighlight
               underlayColor={'#0018A8'}
@@ -208,9 +203,7 @@ import _, {debounce} from 'lodash';
               }}
             >
               <Text style={styles.btext}> Performance </Text>
-            </TouchableHighlight>
-
-            <Text> </Text>
+            </TouchableHighlight><Text> </Text>
 
             <TouchableHighlight
               underlayColor={'#0018A8'}

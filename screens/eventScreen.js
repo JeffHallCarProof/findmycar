@@ -32,70 +32,69 @@ export default class eventScreen extends React.Component {
       this.state.disabled = navigation.getParam('disabled', false);
 
       return (
-          <View style={styles.container}>
 
-            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-              <Text style={{ paddingLeft: 50, paddingRight: 50, fontWeight: 'bold', fontSize: 20}}>
-                Why are you looking for a car?
-              </Text>
-            </View>
-            <View style={styles.bcontainer}>
-              <TouchableHighlight
-                underlayColor={'#0018A8'}
-                style={styles.button}
-                onPress={_.debounce(() => {this._onPress(1)},400)}
-              >
-                <Text style={styles.btext}> Event1 </Text>
-              </TouchableHighlight>
-              
-                <Text> </Text>
-              <TouchableHighlight
-                underlayColor={'#0018A8'}
-                style={styles.button}
-                onPress={_.debounce(() => {this._onPress(2)},400)}
-              >
-                <Text style={styles.btext}> Event2 </Text>
-              </TouchableHighlight>
+        <View style={styles.container}>
 
-              <Text> </Text>
-              <TouchableHighlight
-                underlayColor={'#0018A8'}
-                style={styles.button}
-                onPress={_.debounce(() => {this._onPress(3)},400)}
-              >
-                <Text style={styles.btext}> Event3 </Text>
-              </TouchableHighlight>
+          <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+            <Text style={{ paddingLeft: 50, paddingRight: 50, fontWeight: 'bold', fontSize: 20}}>
+              Why are you looking for a car?
+            </Text>
+          </View>
 
-            </View>
+          <View style={styles.bcontainer}>
+            <TouchableHighlight
+              underlayColor={'#0018A8'}
+              style={styles.button}
+              onPress={_.debounce(() => {this._onPress(1)},400)}
+            >
+              <Text style={styles.btext}> Event1 </Text>
+            </TouchableHighlight><Text> </Text>
 
-            <View style={styles.bcontainer2}>
+            <TouchableHighlight
+              underlayColor={'#0018A8'}
+              style={styles.button}
+              onPress={_.debounce(() => {this._onPress(2)},400)}
+            >
+              <Text style={styles.btext}> Event2 </Text>
+            </TouchableHighlight><Text> </Text>
 
-              <TouchableHighlight
-                underlayColor={'#0018A8'}
-                style={styles.button}
-                onPress={_.debounce(() => {this._onPress(4)},400)}
-              >
-                <Text style={styles.btext}> Event4 </Text>
-              </TouchableHighlight>              
-              <Text> </Text>
-              <TouchableHighlight
-                underlayColor={'#0018A8'}
-                style={styles.button}
-                onPress={_.debounce(() => {this._onPress(5)},400)}
-              >
-                <Text style={styles.btext}> Event5 </Text>
-              </TouchableHighlight>
-              <Text> </Text>
-              <TouchableHighlight
-                underlayColor={'#0018A8'}
-                style={styles.button}
-                onPress={_.debounce(() => {this._onPress(6)},400)}
-              >
-                <Text style={styles.btext}> Other </Text>
-              </TouchableHighlight>  
-            </View>       
+            <TouchableHighlight
+              underlayColor={'#0018A8'}
+              style={styles.button}
+              onPress={_.debounce(() => {this._onPress(3)},400)}
+            >
+              <Text style={styles.btext}> Event3 </Text>
+            </TouchableHighlight>
+          </View>
 
-          </View> 
+          <View style={styles.bcontainer2}>
+            <TouchableHighlight
+              underlayColor={'#0018A8'}
+              style={styles.button}
+              onPress={_.debounce(() => {this._onPress(4)},400)}
+            >
+              <Text style={styles.btext}> Event4 </Text>
+            </TouchableHighlight><Text> </Text>
+
+            <TouchableHighlight
+              underlayColor={'#0018A8'}
+              style={styles.button}
+              onPress={_.debounce(() => {this._onPress(5)},400)}
+            >
+              <Text style={styles.btext}> Event5 </Text>
+            </TouchableHighlight><Text> </Text>
+
+            <TouchableHighlight
+              underlayColor={'#0018A8'}
+              style={styles.button}
+              onPress={_.debounce(() => {this._onPress(6)},400)}
+            >
+              <Text style={styles.btext}> Other </Text>
+            </TouchableHighlight>
+          </View>
+
+        </View>
+
       ); //End of return
     } //End of render
 
@@ -154,7 +153,5 @@ export default class eventScreen extends React.Component {
       borderColor: '#1653bc',
       borderWidth: 1,
     }
-
-
 
 });
