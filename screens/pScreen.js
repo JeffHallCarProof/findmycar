@@ -87,7 +87,7 @@ import _, {debounce} from 'lodash';
                   this.setState({
                     p3: true,})
                   }}}>
-                <Text style={styles.btext}> Exterior  Design </Text>
+                <Text style={styles.btext}>Exterior  Design </Text>
             </TouchableHighlight>
             </View>
             
@@ -107,7 +107,7 @@ import _, {debounce} from 'lodash';
                   this.setState({
                     p5: true,})
                   }}}>
-                <Text style={styles.btext}> Interior Design </Text>
+                <Text style={styles.btext}>Interior  Design </Text>
             </TouchableHighlight>
             <Text> </Text>
             <TouchableHighlight
@@ -307,16 +307,16 @@ import _, {debounce} from 'lodash';
     buttonS: {
       alignItems: 'center',
       backgroundColor: '#1294EF',
-      width: 115,
-      height: 115,
+      width: 95,
+      height: 95,
       
     },
         
     buttonT: {
       alignItems: 'center',
       backgroundColor: '#0018A8',
-      width: 160,
-      height: 160,
+      width: 100,
+      height: 100,
       
     },
 
