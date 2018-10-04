@@ -14,11 +14,12 @@ import { createStackNavigator } from 'react-navigation';
 import { WebBrowser } from 'expo';
 import _, {debounce} from 'lodash';
 import { LinearGradient } from 'expo';
+
   //welcome screen
   export default class welcomeScreen extends React.Component {
 
     constructor(props) {
-        super(props);
+      super(props);
     }
 
     static navigationOptions = {
@@ -28,21 +29,22 @@ import { LinearGradient } from 'expo';
 
     render() {
 
-        this.timeoutHandle = setTimeout(()=>{
-            this.props.navigation.navigate('Events')
-       }, 2500);
       const { navigation } = this.props;
+      this.timeoutHandle = setTimeout(()=>{this.props.navigation.navigate('Events')}, 2500);
+      
 
       return (
+
       <View style={styles.welcomeContainer} onTouchStart={this.onPress}>
         <LinearGradient 
-        colors={['#2487D2','#1294EF','#65B2EE','#8FCAF3']}
-      
-        style={{ flex:1 }}
-        justifyContent={'center'}>
-            
-                <Text style={styles.welcomeText}>Welcome to Carproof's consumer app!</Text></LinearGradient>
-            </View>
+          colors={['#2487D2','#1294EF','#65B2EE','#8FCAF3']}
+          style={{ flex:1 }}
+          justifyContent={'center'}
+        >
+          <Text style={styles.welcomeText}>Welcome to Find-My-Car by Carfax!</Text>
+        </LinearGradient>
+      </View>
+
       ); //End of return
     } //End of render
   } //End of class
@@ -50,18 +52,18 @@ import { LinearGradient } from 'expo';
   const styles = StyleSheet.create({
     
     welcomeContainer: {
-        backgroundColor: '#8FCAF3',
-        flex: 1,
-        justifyContent: 'center'
+      backgroundColor: '#8FCAF3',
+      flex: 1,
+      justifyContent: 'center'
     },
 
     welcomeText: {
-        fontWeight: 'bold',
-        fontSize: 24,
-        color: "#FFFFFF",
-        textAlign: 'center',
-        paddingLeft: 30,
-        paddingRight: 30
+      fontWeight: 'bold',
+      fontSize: 24,
+      color: "#FFFFFF",
+      textAlign: 'center',
+      paddingLeft: 35,
+      paddingRight: 35
     }
 
   });
