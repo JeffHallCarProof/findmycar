@@ -50,8 +50,9 @@ import _, {debounce} from 'lodash';
     render() {
 
       const { navigation } = this.props;
-      const min = navigation.getParam('min');
-      const max = navigation.getParam('max');
+      min = navigation.getParam('min');
+      max = navigation.getParam('max');
+      vehicleClass = navigation.getParam('vehicleClass');
       numArray = [this.state.bs1,this.state.bs2,this.state.bs3,this.state.bs4,this.state.bs5,this.state.bs6,this.state.bs7,this.state.bs8];
 
       return (
@@ -272,7 +273,9 @@ import _, {debounce} from 'lodash';
       }
       else
       {
+        alert(vehicleClass + "\n" + 'Min: '+ min + "\n" + 'Max: '+ max + "\n" + numArray);
         console.log(numArray)
+        
         this.props.navigation.navigate("Results", {nArray: numArray})
       } 
     },1000,{leading:true, trailing:false})

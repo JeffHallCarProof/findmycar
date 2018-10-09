@@ -104,12 +104,12 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider';
 
             <Button
               title = 'Go back'
-              onPress={_.debounce(() => {this._onPress(1, min, max)},400)}
+              onPress={_.debounce(() => {this._onPress(1, min, max,vehicleClass)},400)}
             />
             <TouchableHighlight
               underlayColor={'#0018A8'}
               style={styles.button}
-              onPress={_.debounce(() => {this._onPress(0, min, max)},400)}
+              onPress={_.debounce(() => {this._onPress(0, min, max,vehicleClass)},400)}
             >
               <Text style={styles.btext}> Confirm </Text>
             </TouchableHighlight>
@@ -121,13 +121,13 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider';
     } //End of render
 
     // set up functions as below but add debounce
-    _onPress =_.throttle((bId, min, max) =>{ 
+    _onPress =_.throttle((bId, min, max,vehicleClass) =>{ 
       this.state.disabled=true   
 
       if(JSON.stringify(bId)==1){
         this.props.navigation.navigate('Events')
       } else{
-        this.props.navigation.navigate('Preferences', {min, max})
+        this.props.navigation.navigate('Preferences', {min, max,vehicleClass})
       }
       
     },1000,{leading:true, trailing:false});
