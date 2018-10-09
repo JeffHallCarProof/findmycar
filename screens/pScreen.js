@@ -46,12 +46,13 @@ import _, {debounce} from 'lodash';
       bs8: 0,
       
     }
-
+    
     render() {
 
       const { navigation } = this.props;
       const min = navigation.getParam('min');
       const max = navigation.getParam('max');
+      numArray = [this.state.bs1,this.state.bs2,this.state.bs3,this.state.bs4,this.state.bs5,this.state.bs6,this.state.bs7,this.state.bs8];
 
       return (
 
@@ -60,10 +61,6 @@ import _, {debounce} from 'lodash';
           <View style={styles.tContainer}>
             <Text>Preference Assesment</Text>          
           </View>
-          <Text >Bs1: {this.state.bs1}</Text>
-          <Text >Bs2: {this.state.bs2}</Text>
-          <Text >Bs3: {this.state.bs3}</Text>
-          <Text >Bs4: {this.state.bs4}</Text>
           <View style={styles.bcontainer}>
 
             <TouchableHighlight
@@ -77,11 +74,11 @@ import _, {debounce} from 'lodash';
                 }
                 else if(this.state.p2==true)
                 {
-                  this.setState({p2: false, bs1: 0})
+                  this.setState({p2: false,bs1: 0})
                 }
                 else
                 {
-                  this.setState({p1: true, bs1: 1})
+                  this.setState({p1: true,bs1: 1})
                 }
               }}
             >
@@ -270,11 +267,13 @@ import _, {debounce} from 'lodash';
       this.state.disabled=true   
       if(JSON.stringify(bId)==1)
       {
+        console.log(numArray)
         this.props.navigation.navigate("Info")
       }
       else
       {
-        this.props.navigation.navigate("Results")
+        console.log(numArray)
+        this.props.navigation.navigate("Results", {nArray: numArray})
       } 
     },1000,{leading:true, trailing:false})
 
