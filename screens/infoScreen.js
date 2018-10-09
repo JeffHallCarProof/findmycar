@@ -24,11 +24,19 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider';
 
     state = {
       disabled: false,
-      values: [0, 20000]
+      values: [0, 20000],
+      selected: ''
     };
 
+    //This function allows the lower and upper bounds of the budget slider to be read and stored in variables
     multiSliderValueChange = (values) => {
       this.setState({values});
+    }
+
+    //This function reads the vehicle class from the dropdown menu and stores the variable
+    getSelected(value)
+    {
+      this.setState({selected: value})
     }
 
     render() { 
@@ -37,6 +45,7 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider';
       const eventId = navigation.getParam('eId', 'Invalid');
       var min = this.state.values[0];
       var max = this.state.values[1];
+      var vehicleClass = this.state.selected;
 
       return ( 
 
@@ -50,10 +59,11 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider';
 
             <View style={styles.dropDownView}>
               <ModalDropdown dropdownStyle={styles.dropDownList} textStyle={styles.dropDownText} dropdownTextStyle={styles.optionText} 
-              dropdownTextHighlightStyle={styles.selectedOption} defaultValue="Vehicle Class..." 
-              options={[
-                'Sedan', 'Coupe', 'SUV', 'Truck'               
-              ]}
+                dropdownTextHighlightStyle={styles.selectedOption} defaultValue="Vehicle Class..." 
+                options={[
+                  'Sedan', 'Coupe', 'SUV', 'Truck'               
+                ]}
+                onSelect={(idx, value) => this.getSelected(value)}
               />
             </View>
 
