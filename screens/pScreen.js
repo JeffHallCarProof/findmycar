@@ -15,7 +15,8 @@ import _, {debounce} from 'lodash';
       header: null,
       gesturesEnabled: false,
     };
-
+//p* = path 1-16
+//bs* = buttonState 0-2
     state = {
       text: false,
       p1: false,
@@ -34,7 +35,16 @@ import _, {debounce} from 'lodash';
       p14: false,
       p15: false,
       p16: false,
-      disabled: false
+      disabled: false,
+      bs1: 0,
+      bs2: 0,
+      bs3: 0,
+      bs4: 0,
+      bs5: 0,
+      bs6: 0,
+      bs7: 0,
+      bs8: 0,
+      
     }
 
     render() {
@@ -50,7 +60,10 @@ import _, {debounce} from 'lodash';
           <View style={styles.tContainer}>
             <Text>Preference Assesment</Text>          
           </View>
-
+          <Text >Bs1: {this.state.bs1}</Text>
+          <Text >Bs2: {this.state.bs2}</Text>
+          <Text >Bs3: {this.state.bs3}</Text>
+          <Text >Bs4: {this.state.bs4}</Text>
           <View style={styles.bcontainer}>
 
             <TouchableHighlight
@@ -59,15 +72,16 @@ import _, {debounce} from 'lodash';
               onPress={() =>{
                 if(this.state.p1==true)
                 {
-                  this.setState({p1:!this.state.p1, p2: !this.state.p2})
+                  this.setState({p1: false, p2: true,bs1: 2})
+                  
                 }
-                if(this.state.p2==true)
+                else if(this.state.p2==true)
                 {
-                  this.setState({p2:!this.state.p2})
+                  this.setState({p2: false, bs1: 0})
                 }
                 else
                 {
-                  this.setState({p1: true})
+                  this.setState({p1: true, bs1: 1})
                 }
               }}
             >
@@ -80,15 +94,15 @@ import _, {debounce} from 'lodash';
               onPress={() =>{
                 if(this.state.p3==true)
                 {
-                  this.setState({p3:!this.state.p3, p4: !this.state.p4})
+                  this.setState({p3: false, p4: true,bs2: 2})
                 }
-                if(this.state.p4==true)
+                else if(this.state.p4==true)
                 {
-                  this.setState({p4:!this.state.p4})
+                  this.setState({p4:false, bs2: 0})
                 }
                 else
                 {
-                  this.setState({p3: true})
+                  this.setState({p3: true, bs2: 1})
                 }
               }}
             >
@@ -103,15 +117,15 @@ import _, {debounce} from 'lodash';
               onPress={() =>{
                 if(this.state.p5==true)
                 {
-                  this.setState({p5:!this.state.p5, p6: !this.state.p6})
+                  this.setState({p5:false, p6: true, bs3: 2})
                 }
-                if(this.state.p6==true)
+                else if(this.state.p6==true)
                 {
-                  this.setState({p6:!this.state.p6})
+                  this.setState({p6:false, bs3: 0})
                 }
                 else
                 {
-                  this.setState({p5: true})
+                  this.setState({p5: true, bs3: 1})
                 }
               }}
             >
@@ -124,15 +138,15 @@ import _, {debounce} from 'lodash';
               onPress={() =>{
                 if(this.state.p7==true)
                 {
-                  this.setState({p7:!this.state.p7, p8: !this.state.p8})
+                  this.setState({p7: false, p8: true, bs4: 2})
                 }
-                if(this.state.p8==true)
+                else if(this.state.p8==true)
                 {
-                  this.setState({p8:!this.state.p8})
+                  this.setState({p8:false, bs4: 0})
                 }
                 else
                 {
-                  this.setState({p7: true})
+                  this.setState({p7: true, bs4: 1})
                 }
               }}
             >
@@ -147,15 +161,15 @@ import _, {debounce} from 'lodash';
               onPress={() =>{
                 if(this.state.p9==true)
                 {
-                  this.setState({p9:!this.state.p9, p10: !this.state.p10})
+                  this.setState({p9: false, p10: true, bs5: 2})
                 }
-                if(this.state.p10==true)
+                else if(this.state.p10==true)
                 {
-                  this.setState({p10:!this.state.p10})
+                  this.setState({p10: false, bs5: 0})
                 }
                 else
                 {
-                  this.setState({p9: true})
+                  this.setState({p9: true, bs5: 1})
                 }
               }}
             >
@@ -168,15 +182,15 @@ import _, {debounce} from 'lodash';
               onPress={() =>{
                 if(this.state.p11==true)
                 {
-                  this.setState({p11:!this.state.p11, p12: !this.state.p12,})
+                  this.setState({p11:false, p12: true, bs6: 2})
                 }
-                if(this.state.p12==true)
+                else if(this.state.p12==true)
                 {
-                  this.setState({p12:!this.state.p12,})
+                  this.setState({p12: false, bs6: 0})
                 }
                 else
                 {
-                  this.setState({p11: true})
+                  this.setState({p11: true, bs6: 1})
                 }
               }}
             >
@@ -191,14 +205,14 @@ import _, {debounce} from 'lodash';
               onPress={() =>{
                 if(this.state.p13==true)
                 {
-                  this.setState({p13:!this.state.p13, p14: !this.state.p14})
+                  this.setState({p13: false, p14: true, bs7: 2})
                 }
-                if(this.state.p14==true){
-                  this.setState({p14:!this.state.p14})
+                else if(this.state.p14==true){
+                  this.setState({p14: false, bs7: 0})
                 }
                 else
                 {
-                  this.setState({p13: true})
+                  this.setState({p13: true, bs7: 1})
                 }
               }}
             >
@@ -211,15 +225,15 @@ import _, {debounce} from 'lodash';
               onPress={() =>{
                 if(this.state.p15==true)
                 {
-                  this.setState({p15:!this.state.p15, p16: !this.state.p16})
+                  this.setState({p15: false, p16: true, bs8:2})
                 }
-                if(this.state.p16==true)
+                else if(this.state.p16==true)
                 {
-                  this.setState({p16:!this.state.p16})
+                  this.setState({p16: false, bs8: 0})
                 }
                 else
                 {
-                  this.setState({p15: true})
+                  this.setState({p15: true, bs8: 1})
                 }
               }}
             >
