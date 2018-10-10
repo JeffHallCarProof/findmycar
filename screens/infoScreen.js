@@ -23,7 +23,7 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider';
 
     state = {
       disabled: false,
-      values: [0, 20000]
+      values: [0, 50000]
     };
 
     //This function allows the lower and upper bounds of the budget slider to be read and stored in variables
@@ -55,7 +55,9 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider';
                 <Text style={styles.sliderLabel1}>Budget</Text>
               </View>
               <Text style={styles.sliderLabel2}>Minimum: ${this.state.values[0]}</Text>
-              <Text style={styles.sliderLabel3}>Maximum: ${this.state.values[1]}</Text>
+              {this.state.values[1] == 100000?
+              <Text style={styles.sliderLabel3}>Maximum: No Limit</Text>:<Text style={styles.sliderLabel3}>Maximum: ${this.state.values[1]}</Text>}
+               
             </View>
 
             <View style={styles.sliderView}>
@@ -64,7 +66,7 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider';
                   sliderLength={250}
                   onValuesChange={this.multiSliderValueChange}
                   min={0}
-                  max={20000}
+                  max={100000}
                   step={500}
                   unselectedStyle={{
                     height: 3,
@@ -110,6 +112,9 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider';
       if(JSON.stringify(bId)==1){
         this.props.navigation.navigate('Class')
       } else{
+        if (max == 1000000){
+          max = 99999999999}
+        
         this.props.navigation.navigate('Preferences', {eId: eventId, cId: classId, min, max})
       }
       

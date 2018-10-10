@@ -42,11 +42,23 @@ import ProgressBar from 'react-native-progress/Bar';
       header: null,
       gesturesEnabled: false,
     };
+    state ={
+      overall:0.9,
+      comfort:0,
+      fuelEco:0,
+      safety:0,
+      reliablitiy:0,
+      environment:0,
+      preformance:0,
+      style:0,
+      cargoSpace:0,
+
+    }
 
     render() {
 
       const { navigation } = this.props;
-  
+      this.state.overall = 0.9;
       return (
             
         <View style={styles.bcontainer}>
@@ -104,7 +116,7 @@ import ProgressBar from 'react-native-progress/Bar';
               </View>
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Overall </Text>
-                <ProgressBar progress={0.9} unfilledColor={'#c8c9d1'} height={18} color={'#0018A8'} borderRadius={4}/>
+                <ProgressBar progress={this.state.overall} unfilledColor={'#c8c9d1'} height={18} color={'#0018A8'} borderRadius={4}/>
               </View>
             </View>
 
@@ -230,7 +242,7 @@ import ProgressBar from 'react-native-progress/Bar';
                 />
               )
           }
-            <Text style = { styles.Percentage }> { Math.round( this.state.progress_count * 100 ) }% </Text>
+            
           </View>
 
           <View style={styles.Progressbutton}>
@@ -301,7 +313,7 @@ const styles = StyleSheet.create({
       right: 0,
       bottom: 15,
       paddingLeft: 5,
-      paddingRight: 47,
+      paddingRight: 5,
       paddingTop:10,
       backgroundColor: '#8FCAF3',
       height: 45,
