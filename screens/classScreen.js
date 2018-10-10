@@ -14,8 +14,8 @@ import {
 import { createStackNavigator } from 'react-navigation';
 import _, {debounce} from 'lodash';
 
-// Screen for people who do not know what car they want
-export default class eventScreen extends React.Component {
+// Screen for vehicle class selection
+export default class classScreen extends React.Component {
 
     static navigationOptions = {
       header: null,
@@ -30,6 +30,7 @@ export default class eventScreen extends React.Component {
 
       const { navigation } = this.props;
       this.state.disabled = navigation.getParam('disabled', false);
+      const eventId = navigation.getParam('eId', 'Invalid');
 
       return (
 
@@ -37,7 +38,7 @@ export default class eventScreen extends React.Component {
 
           <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
             <Text style={{ paddingLeft: 50, paddingRight: 50, fontWeight: 'bold', fontSize: 20}}>
-              Why are you looking for a car?
+              Select a vehicle class below
             </Text>
           </View>
 
@@ -45,25 +46,25 @@ export default class eventScreen extends React.Component {
             <TouchableHighlight
               underlayColor={'#0018A8'}
               style={styles.button}
-              onPress={_.debounce(() => {this._onPress(1)},400)}
+              onPress={_.debounce(() => {this._onPress(1, eventId)},400)}
             >
-              <Text style={styles.btext}> Event1 </Text>
+              <Text style={styles.btext}> Class1 </Text>
             </TouchableHighlight><Text> </Text>
 
             <TouchableHighlight
               underlayColor={'#0018A8'}
               style={styles.button}
-              onPress={_.debounce(() => {this._onPress(2)},400)}
+              onPress={_.debounce(() => {this._onPress(2, eventId)},400)}
             >
-              <Text style={styles.btext}> Event2 </Text>
+              <Text style={styles.btext}> Class2 </Text>
             </TouchableHighlight><Text> </Text>
 
             <TouchableHighlight
               underlayColor={'#0018A8'}
               style={styles.button}
-              onPress={_.debounce(() => {this._onPress(3)},400)}
+              onPress={_.debounce(() => {this._onPress(3, eventId)},400)}
             >
-              <Text style={styles.btext}> Event3 </Text>
+              <Text style={styles.btext}> Class3 </Text>
             </TouchableHighlight>
           </View>
 
@@ -71,26 +72,33 @@ export default class eventScreen extends React.Component {
             <TouchableHighlight
               underlayColor={'#0018A8'}
               style={styles.button}
-              onPress={_.debounce(() => {this._onPress(4)},400)}
+              onPress={_.debounce(() => {this._onPress(4, eventId)},400)}
             >
-              <Text style={styles.btext}> Event4 </Text>
+              <Text style={styles.btext}> Class4 </Text>
             </TouchableHighlight><Text> </Text>
 
             <TouchableHighlight
               underlayColor={'#0018A8'}
               style={styles.button}
-              onPress={_.debounce(() => {this._onPress(5)},400)}
+              onPress={_.debounce(() => {this._onPress(5, eventId)},400)}
             >
-              <Text style={styles.btext}> Event5 </Text>
+              <Text style={styles.btext}> Class5 </Text>
             </TouchableHighlight><Text> </Text>
 
             <TouchableHighlight
               underlayColor={'#0018A8'}
               style={styles.button}
-              onPress={_.debounce(() => {this._onPress(6)},400)}
+              onPress={_.debounce(() => {this._onPress(6, eventId)},400)}
             >
               <Text style={styles.btext}> Other </Text>
             </TouchableHighlight>
+          </View>
+
+          <View style={styles.buttonContainer}>
+            <Button
+                title = 'Go back'
+                onPress={_.debounce(() => {this._onPressBack()},400)}
+            />
           </View>
 
         </View>
@@ -98,10 +106,15 @@ export default class eventScreen extends React.Component {
       ); //End of return
     } //End of render
 
-    _onPress =_.throttle((eventId) =>{ 
+    _onPress =_.throttle((classId, eventId) =>{ 
       this.state.disabled=true  
-      this.props.navigation.navigate("Class", {disabled:false, eId: eventId})
-    },1000,{leading:true, trailing:false}); //End of button function
+      this.props.navigation.navigate("Info", {disabled:false, cId: classId, eId: eventId})
+    },1000,{leading:true, trailing:false});
+
+    _onPressBack =_.throttle(() =>{ 
+        this.state.disabled=true  
+        this.props.navigation.navigate("Events", {disabled:false})
+      },1000,{leading:true, trailing:false});
 
   } //End of class
 

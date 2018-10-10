@@ -12,7 +12,6 @@ import {
     View
   } from 'react-native';
 import _, {debounce} from 'lodash';
-import ModalDropdown from 'react-native-modal-dropdown';
 import MultiSlider from '@ptomasroos/react-native-multi-slider';
 
   export default class infoScreen extends React.Component {
@@ -24,8 +23,7 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider';
 
     state = {
       disabled: false,
-      values: [0, 20000],
-      selected: ''
+      values: [0, 20000]
     };
 
     //This function allows the lower and upper bounds of the budget slider to be read and stored in variables
@@ -33,19 +31,13 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider';
       this.setState({values});
     }
 
-    //This function reads the vehicle class from the dropdown menu and stores the variable
-    getSelected(value)
-    {
-      this.setState({selected: value})
-    }
-
     render() { 
       
       const { navigation } = this.props;
       const eventId = navigation.getParam('eId', 'Invalid');
+      const classId = navigation.getParam('cId', 'Invalid');
       var min = this.state.values[0];
       var max = this.state.values[1];
-      var vehicleClass = this.state.selected;
 
       return ( 
 
@@ -54,17 +46,8 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider';
           <View style={styles.bcontainer}>
           
             <View style={styles.sliderLabelView3}>
-              <Text style={styles.infoText}>Select your desired vehicle class and set your budget below</Text>
-            </View>
-
-            <View style={styles.dropDownView}>
-              <ModalDropdown dropdownStyle={styles.dropDownList} textStyle={styles.dropDownText} dropdownTextStyle={styles.optionText} 
-                dropdownTextHighlightStyle={styles.selectedOption} defaultValue="Vehicle Class..." 
-                options={[
-                  'Sedan', 'Coupe', 'SUV', 'Truck'               
-                ]}
-                onSelect={(idx, value) => this.getSelected(value)}
-              />
+              <Text style={styles.infoText}>Set your budget below</Text>
+              <Text style={styles.infoText}>Class: {classId}, Event: {eventId}</Text>
             </View>
 
             <View style={styles.sliderLabelView}>
@@ -104,12 +87,12 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider';
 
             <Button
               title = 'Go back'
-              onPress={_.debounce(() => {this._onPress(1, min, max,vehicleClass)},400)}
+              onPress={_.debounce(() => {this._onPress(eventId, classId, 1, min, max)},400)}
             />
             <TouchableHighlight
               underlayColor={'#0018A8'}
               style={styles.button}
-              onPress={_.debounce(() => {this._onPress(0, min, max,vehicleClass)},400)}
+              onPress={_.debounce(() => {this._onPress(eventId, classId, 0, min, max)},400)}
             >
               <Text style={styles.btext}> Confirm </Text>
             </TouchableHighlight>
@@ -121,13 +104,13 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider';
     } //End of render
 
     // set up functions as below but add debounce
-    _onPress =_.throttle((bId, min, max,vehicleClass) =>{ 
+    _onPress =_.throttle((eventId, classId, bId, min, max) =>{ 
       this.state.disabled=true   
 
       if(JSON.stringify(bId)==1){
-        this.props.navigation.navigate('Events')
+        this.props.navigation.navigate('Class')
       } else{
-        this.props.navigation.navigate('Preferences', {min, max,vehicleClass})
+        this.props.navigation.navigate('Preferences', {eId: eventId, cId: classId, min, max})
       }
       
     },1000,{leading:true, trailing:false});

@@ -52,7 +52,8 @@ import _, {debounce} from 'lodash';
       const { navigation } = this.props;
       min = navigation.getParam('min');
       max = navigation.getParam('max');
-      vehicleClass = navigation.getParam('vehicleClass');
+      const eventId = navigation.getParam('eId', 'Invalid');
+      const classId = navigation.getParam('cId', 'Invalid');
       numArray = [this.state.bs1,this.state.bs2,this.state.bs3,this.state.bs4,this.state.bs5,this.state.bs6,this.state.bs7,this.state.bs8];
 
       return (
@@ -243,7 +244,7 @@ import _, {debounce} from 'lodash';
 
             <Button
              title="Go back"
-             onPress={_.debounce(() => {this._onPress(bId=1)},400)}
+             onPress={_.debounce(() => {this._onPress(eventId, classId, 1)},400)}
             />
 
             <Text></Text>
@@ -251,7 +252,7 @@ import _, {debounce} from 'lodash';
             <TouchableHighlight
               underlayColor={'#0018A8'}
               style={styles.buttonConfirm}
-              onPress={_.debounce(() => {this._onPress(bId=0)},400)}
+              onPress={_.debounce(() => {this._onPress(eventId, classId, 0)},400)}
             >
               <Text style={styles.btext}>Confirm</Text>
             </TouchableHighlight>
@@ -264,7 +265,7 @@ import _, {debounce} from 'lodash';
     } //End of render
    
     // set up functions as below but add debounce
-    _onPress =_.throttle((bId) =>{ 
+    _onPress =_.throttle((eventId, classId, bId) =>{ 
       this.state.disabled=true   
       if(JSON.stringify(bId)==1)
       {
@@ -273,7 +274,7 @@ import _, {debounce} from 'lodash';
       }
       else
       {
-        alert(vehicleClass + "\n" + 'Min: '+ min + "\n" + 'Max: '+ max + "\n" + numArray);
+        alert("Event: " + eventId + "\nClass: " + classId + '\nMin: '+ min + '\nMax: '+ max + "\nPreferences: " + numArray);
         console.log(numArray)
         
         this.props.navigation.navigate("Results", {nArray: numArray})
