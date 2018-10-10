@@ -47,7 +47,6 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider';
           
             <View style={styles.sliderLabelView3}>
               <Text style={styles.infoText}>Set your budget below</Text>
-              <Text style={styles.infoText}>Class: {classId}, Event: {eventId}</Text>
             </View>
 
             <View style={styles.sliderLabelView}>
@@ -67,7 +66,7 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider';
                   onValuesChange={this.multiSliderValueChange}
                   min={0}
                   max={100000}
-                  step={500}
+                  step={1000}
                   unselectedStyle={{
                     height: 3,
                     backgroundColor: '#E74C3C'
