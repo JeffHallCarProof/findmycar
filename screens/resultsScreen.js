@@ -46,10 +46,10 @@ import ProgressBar from 'react-native-progress/Bar';
       var direction;
 
       if (dif < 0) {
-        console.log('left');
+        //console.log('left');
         direction = "left"
       } else {
-        console.log('right');
+        //console.log('right');
         direction = "right"
       }
       this.offset = currentOffset;
@@ -93,9 +93,8 @@ import ProgressBar from 'react-native-progress/Bar';
           </View>
                
           <ScrollView horizontal={true} backgroundColor= '#8FCAF3' pagingEnabled={true} 
-            onMomentumScrollEnd = { this.updateNavbar } 
+            onMomentumScrollEnd = { this.updateNavbar } bounces = {false}
             scrollEventThrottle = { 12 } showsHorizontalScrollIndicator={false}
-            bounces = {false}
           >
             <View style={styles.colContainer}>
               <View style={styles.topContainer}>
