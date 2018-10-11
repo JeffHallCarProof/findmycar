@@ -7,8 +7,6 @@ import {
     Text,
     TouchableHighlight,
     View,
-    ProgressBarAndroid,
-    ProgressViewIOS 
   } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 import ProgressBar from 'react-native-progress/Bar';
@@ -18,31 +16,12 @@ import ProgressBar from 'react-native-progress/Bar';
   //results screen
   export default class resultsScreen extends React.Component {
 
-    constructor()
-    {
-        super();
- 
-        this.state = { 
-          
-          progress_count: 0 
-        
-        }
-
-        this.scrollView_width = 0;
- 
-        this.scrollViewContent_width = 0;
-    }
- 
-    UpdateProgressBar = (progress) =>
-    {
-      this.setState({ progress_count: Math.abs( progress.nativeEvent.contentOffset.x / ( this.scrollViewContent_width - this.scrollView_width ))});
-    }
-
     static navigationOptions = {
       header: null,
       gesturesEnabled: false,
     };
-    state ={
+
+    state = {
       overall:0.9,
       comfort:0,
       fuelEco:0,
@@ -52,13 +31,60 @@ import ProgressBar from 'react-native-progress/Bar';
       preformance:0,
       style:0,
       cargoSpace:0,
-
+      p1: true,
+      p2: false,
+      p3: false,
+      offset: 0
     }
+    
+
+    updateNavbar = (event) =>
+    {
+      
+      const currentOffset = event.nativeEvent.contentOffset.x;
+      const dif = currentOffset - (this.offset || 0);
+      var direction;
+
+      if (dif < 0) {
+        console.log('left');
+        direction = "left"
+      } else {
+        console.log('right');
+        direction = "right"
+      }
+      this.offset = currentOffset;
+
+      //User scrolling right conditions:
+      //If first page is active, and the user is scrolling right: set the second page to active
+      if(this.state.p1 == true && this.state.p2 == false && this.state.p3 == false && direction == "right")
+      {
+        this.setState({p1: false, p2: true, p3: false})
+      }
+      //If the second page is active, and the user is scrolling right: set the third page to active
+      else if(this.state.p2 == true && this.state.p1 == false && this.state.p3 == false && direction == "right")
+      {
+        this.setState({p1: false, p2: false, p3: true})
+      }
+
+      //User scrolling left conditions:
+      //If the third page is active, and the user is scrolling left: set the second page to active
+      if(this.state.p3 == true && this.state.p1 == false && this.state.p2 == false && direction == "left")
+      {
+        this.setState({p2: true, p1: false, p3: false})
+      }
+      //If the second page is active, and the user is scrolling left: set the first page to active
+      else if(this.state.p2 == true && this.state.p1 == false && this.state.p3 == false && direction == "left")
+      {
+        this.setState({p1: true, p2: false, p3: false})
+      }
+    }
+
 
     render() {
 
       const { navigation } = this.props;
       this.state.overall = 0.9;
+
       return (
             
         <View style={styles.bcontainer}>
@@ -67,10 +93,9 @@ import ProgressBar from 'react-native-progress/Bar';
           </View>
                
           <ScrollView horizontal={true} backgroundColor= '#8FCAF3' pagingEnabled={true} 
-            onContentSizeChange = {( width, height ) => { this.scrollViewContent_width = width }} 
-            onScroll = { this.UpdateProgressBar } 
-            onLayout = {(event) => this.scrollView_width = ( event.nativeEvent.layout.width )} 
-            scrollEventThrottle = { 12 } showsHorizontalScrollIndicator={false} flex={1}
+            onMomentumScrollEnd = { this.updateNavbar } 
+            scrollEventThrottle = { 12 } showsHorizontalScrollIndicator={false}
+            bounces = {false}
           >
             <View style={styles.colContainer}>
               <View style={styles.topContainer}>
@@ -219,30 +244,10 @@ import ProgressBar from 'react-native-progress/Bar';
 
           </ScrollView>
 
-          <View style = { styles.ProgressBar_HolderView }>
-          {   
-            ( Platform.OS === 'android' )
-            ?
-              (
-                <ProgressBarAndroid
-                  styleAttr = "Horizontal"
-                  progress = { this.state.progress_count }
-                  color = "#fff"
-                  indeterminate = { false }
-                  style = {{ width: '100%' }}
-                />
-              )
-            :
-              (
-                <ProgressViewIOS
-                  progressTintColor = "#fff"
-                  style = {{ width: '100%' }}
-                  progress = { this.state.progress_count }
-                  borderColor= {'#1653bc'}
-                />
-              )
-          }
-            
+          <View style={styles.navContainer}>
+            <View style={[styles.circle, this.state.p1 && styles.activeNav]} /><Text> </Text>
+            <View style={[styles.circle, this.state.p2 && styles.activeNav]} /><Text> </Text>
+            <View style={[styles.circle, this.state.p3 && styles.activeNav]} />
           </View>
 
           <View style={styles.Progressbutton}>
@@ -290,11 +295,11 @@ const styles = StyleSheet.create({
     },
 
     colContainer: {
+      flex: 1,
       flexDirection: 'column',
       paddingTop: 15,
       paddingLeft: 15,
       paddingRight: 15,
-      bottom: 0,
       borderColor: '#1653bc',
       borderWidth: 1,
       width: 375,
@@ -304,21 +309,6 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       justifyContent: 'space-between',
       alignItems: 'flex-start',
-    },
-
-    ProgressBar_HolderView: {
-      flexDirection: 'row',
-      position: 'absolute',
-      left: 0,
-      right: 0,
-      bottom: 15,
-      paddingLeft: 5,
-      paddingRight: 5,
-      paddingTop:10,
-      backgroundColor: '#8FCAF3',
-      height: 45,
-      borderTopWidth: 1,
-      borderColor: '#1653bc'
     },
 
     Progressbutton: {
@@ -333,11 +323,27 @@ const styles = StyleSheet.create({
       height: 45,
     },
 
-    Percentage: {
-      position: 'absolute',
-      right: 6,
-      fontWeight: 'bold',
-      color: 'white'
+    circle: {
+      width: 20,
+      height: 20,
+      borderRadius: 50,
+      borderColor: '#000000',
+      borderWidth: 1
+    },
+
+    activeNav: {
+      width: 20,
+      height: 20,
+      borderRadius: 50,
+      borderColor: '#000000',
+      borderWidth: 1,
+      backgroundColor: '#FFFFFF'
+    },
+
+    navContainer: {
+      flex: 1,
+      flexDirection: 'row',
+      paddingTop: 20
     },
     
     colText: {
