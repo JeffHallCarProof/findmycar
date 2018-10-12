@@ -37,6 +37,19 @@ import ProgressBar from 'react-native-progress/Bar';
       offset: 0
     }
     
+    getHelloW(){
+      const url = "https://productlab.carfax.ca/findmycar/";
+      fetch(url,console.log(url),{
+        method:'GET',
+        headers:{
+                'Accept':'application/json',
+                'Content-Type':'application/json',
+            }
+        })
+        .then((response)=> response.json(), console.log(1))
+        .then((responseJson)=> console.log(responseJson))
+        .catch((err)=>{console.error(err)})
+    };
 
     updateNavbar = (event) =>
     {
@@ -253,7 +266,7 @@ import ProgressBar from 'react-native-progress/Bar';
             <TouchableHighlight
               underlayColor={'#2C74B1'}
               style={styles.button}
-              onPress={() => {this.props.navigation.navigate('Events');}}
+              onPress={() => {this.getHelloW()}}
             >
               <Text style={styles.btext}>Home</Text>
             </TouchableHighlight>
@@ -269,7 +282,7 @@ const styles = StyleSheet.create({
 
     container: {
       flex: 1,
-      backgroundColor: 'white',
+      backgroundColor: '#FFFFFF',
       paddingHorizontal: 10
     },
 
@@ -281,7 +294,7 @@ const styles = StyleSheet.create({
     },
 
     btext: {
-      color: 'white'
+      color: '#FFFFFF'
     },
 
     button: {
@@ -323,16 +336,16 @@ const styles = StyleSheet.create({
     },
 
     circle: {
-      width: 20,
-      height: 20,
+      width: 10,
+      height: 10,
       borderRadius: 50,
       borderColor: '#000000',
       borderWidth: 1
     },
 
     activeNav: {
-      width: 20,
-      height: 20,
+      width: 10,
+      height: 10,
       borderRadius: 50,
       borderColor: '#000000',
       borderWidth: 1,
@@ -342,7 +355,8 @@ const styles = StyleSheet.create({
     navContainer: {
       flex: 1,
       flexDirection: 'row',
-      paddingTop: 20
+      paddingTop: 20,
+      paddingBottom: 10,
     },
     
     colText: {

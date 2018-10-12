@@ -13,6 +13,7 @@ import {
   } from 'react-native';
 import _, {debounce} from 'lodash';
 import MultiSlider from '@ptomasroos/react-native-multi-slider';
+import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
 
   export default class infoScreen extends React.Component {
 
@@ -42,6 +43,20 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider';
       return ( 
 
         <View style={styles.container}>
+
+          <NavBar style={styles}>
+            <View paddingLeft={20}>
+              <NavButton onPress={_.debounce(() => {this._goBack()},400)}>
+                {<Image source={require('../assets/Path.png')}></Image>}
+              </NavButton>
+            </View>
+              
+            <View paddingLeft={90} paddingRight={120} paddingTop={20} paddingBottom={10}>
+              <NavTitle>
+                {<Image source={require('../assets/CARFAX-Canada.png')}></Image>}
+              </NavTitle>
+            </View>
+          </NavBar>
 
           <View style={styles.bcontainer}>
           
@@ -99,6 +114,14 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider';
             </TouchableHighlight>
 
           </View>
+
+          <View style={styles.navContainer}>
+            <View style={styles.circle} /><Text> </Text>
+            <View style={styles.circle} /><Text> </Text>
+            <View style={styles.activeNav} /><Text> </Text>
+            <View style={styles.circle} />
+          </View>
+
         </View>
         
       ); //End of return
@@ -119,14 +142,18 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider';
       
     },1000,{leading:true, trailing:false});
 
+    _goBack =_.throttle(() =>{ 
+      this.state.disabled=true  
+      this.props.navigation.navigate("Class")
+    },1000,{leading:true, trailing:false});
+
   } //End of class
 
   const styles = StyleSheet.create({
 
     container: {
       flex: 1,
-      backgroundColor: 'white',
-      paddingHorizontal: 10
+      backgroundColor: '#FFFFFF'
     },
 
     contentContainer: {
@@ -135,20 +162,20 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider';
 
     bcontainer: {
       flex: 1,
-      backgroundColor: 'white',
+      backgroundColor: '#FFFFFF',
       alignItems: 'center',
       justifyContent: 'center',
       paddingHorizontal: 10
     },
 
     btext: {
-      color: 'white'
+      color: '#FFFFFF'
     },
 
     buttonContainer: {
       paddingBottom: 30,
       paddingTop: 30,
-      backgroundColor: 'white',
+      backgroundColor: '#FFFFFF',
       alignItems: 'center',
       justifyContent: 'center',
       paddingVertical: 2,
@@ -228,7 +255,7 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider';
 
     sliderLabelView3: {
       alignItems: "center",
-      paddingBottom: 100,
+      paddingBottom: 30,
       paddingLeft: 20,
       paddingRight: 20
     },
@@ -253,6 +280,37 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider';
     infoText: {
       fontSize: 20,
       fontWeight: 'bold'
-    }
+    },
+
+    navBar: {
+      backgroundColor: '#FFFFFF',
+      flexDirection: 'row',
+      alignItems: 'center',
+      height: 80
+    },
+
+    circle: {
+      width: 10,
+      height: 10,
+      borderRadius: 50,
+      borderColor: '#000000',
+      borderWidth: 1
+    },
+
+    activeNav: {
+      width: 10,
+      height: 10,
+      borderRadius: 50,
+      borderColor: '#000000',
+      borderWidth: 1,
+      backgroundColor: '#1294EF'
+    },
+
+    navContainer: {
+      flex: 1,
+      flexDirection: 'row',
+      paddingTop: 20,
+      justifyContent: 'center'
+    },
 
   });

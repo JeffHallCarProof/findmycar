@@ -13,7 +13,7 @@ import {
 import { createStackNavigator } from 'react-navigation';
 import { WebBrowser } from 'expo';
 import _, {debounce} from 'lodash';
-import { LinearGradient } from 'expo';
+import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
 
   //welcome screen
   export default class welcomeScreen extends React.Component {
@@ -30,39 +30,89 @@ import { LinearGradient } from 'expo';
     render() {
 
       const { navigation } = this.props;
-      this.timeoutHandle = setTimeout(()=>{this.props.navigation.navigate('Events')}, 2500);
       
       return (
+        <View>
 
-      <View style={styles.welcomeContainer} onTouchStart={this.onPress}>
-        <LinearGradient 
-          colors={['#2487D2','#1294EF','#65B2EE','#8FCAF3']}
-          style={{ flex:1 }}
-          justifyContent={'center'}
-        >
-          <Text style={styles.welcomeText}>Welcome to Find-My-Car by Carfax!</Text>
-        </LinearGradient>
-      </View>
+          <NavBar style={styles}>
+            <View paddingLeft={120} paddingRight={120} paddingTop={20} paddingBottom={10}>
+              <NavTitle>
+                {<Image source={require('../assets/CARFAX-Canada.png')}></Image>}
+              </NavTitle>
+            </View>
+          </NavBar>
+
+          <View style={styles.container}>
+            <View style={styles.iContainer}>
+              <Image source={require('../assets/Guy-Hero.png')}></Image>
+            </View>
+            
+
+            <Text style={styles.titleText}>Let us find the right car for you.</Text>
+            <Text style={styles.contentText}>Lorizzle ipsizzle dolizzle sit amet, sizzle adipiscing elit. Sheezy i saw beyonces tizzles and my pizzle went crizzle velizzle, aliquet volutpizzle, suscipizzle quizzle, gravida vel, boofron.</Text>
+
+            <TouchableHighlight
+              underlayColor={'#0018A8'}
+              style={styles.button}
+              onPress={_.debounce(() => {this._onPress()},400)}
+            >
+              <Text style={styles.btext}> GET STARTED </Text>
+            </TouchableHighlight>
+          </View>
+
+          
+
+        </View>
 
       ); //End of return
     } //End of render
+
+    _onPress =_.throttle(() =>{
+      this.props.navigation.navigate("Events")
+    },1000,{leading:true, trailing:false}); //End of button function
+
   } //End of class
 
   const styles = StyleSheet.create({
     
-    welcomeContainer: {
-      backgroundColor: '#8FCAF3',
-      flex: 1,
-      justifyContent: 'center'
+    container: {
+      alignItems: "center",
+      justifyContent: "space-between"
     },
 
-    welcomeText: {
-      fontWeight: 'bold',
-      fontSize: 24,
-      color: "#FFFFFF",
-      textAlign: 'center',
-      paddingLeft: 35,
-      paddingRight: 35
+    iContainer: {
+      paddingTop: 30
+    },
+
+    navBar: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      height: 80
+    },
+
+    button: {
+      alignItems: 'center',
+      justifyContent: 'center',
+      backgroundColor: '#1294EF',
+      borderRadius: 4,
+      width: 340,
+      height: 60,
+      borderColor: '#1653bc',
+      borderWidth: 1,
+    },
+
+    btext: {
+      color: "#FFFFFF"
+    },
+
+    titleText: {
+      paddingTop: 50,
+      paddingBottom: 10
+    },
+
+    contentText: {
+      paddingBottom: 50,
+      paddingHorizontal: 20
     }
 
   });

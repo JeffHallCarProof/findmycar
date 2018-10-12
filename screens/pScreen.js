@@ -5,8 +5,10 @@ import {
     Text,
     TouchableHighlight,
     View,
+    Image
   } from 'react-native';
 import _, {debounce} from 'lodash';
+import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
 
   //preferences screen
   export default class pScreen extends React.Component {
@@ -15,8 +17,9 @@ import _, {debounce} from 'lodash';
       header: null,
       gesturesEnabled: false,
     };
-//p* = path 1-16
-//bs* = buttonState 0-2
+
+    //p* = path 1-16
+    //bs* = buttonState 0-2
     state = {
       text: false,
       p1: false,
@@ -43,8 +46,7 @@ import _, {debounce} from 'lodash';
       bs5: 0,
       bs6: 0,
       bs7: 0,
-      bs8: 0,
-      
+      bs8: 0
     }
     
     render() {
@@ -59,6 +61,20 @@ import _, {debounce} from 'lodash';
       return (
 
         <View style={styles.container}>
+
+          <NavBar style={styles}>
+            <View paddingLeft={20}>
+              <NavButton onPress={_.debounce(() => {this._goBack()},400)}>
+                {<Image source={require('../assets/Path.png')}></Image>}
+              </NavButton>
+            </View>
+              
+            <View paddingLeft={90} paddingRight={120} paddingTop={20} paddingBottom={10}>
+              <NavTitle>
+                {<Image source={require('../assets/CARFAX-Canada.png')}></Image>}
+              </NavTitle>
+            </View>
+          </NavBar>
 
           <View style={styles.tContainer}>
             <Text>Preference Assesment</Text>          
@@ -259,6 +275,13 @@ import _, {debounce} from 'lodash';
 
           </View>
 
+          <View style={styles.navContainer}>
+            <View style={styles.circle} /><Text> </Text>
+            <View style={styles.circle} /><Text> </Text>
+            <View style={styles.circle} /><Text> </Text>
+            <View style={styles.activeNav} />
+          </View>
+
         </View>
 
       ); //End of return
@@ -281,6 +304,11 @@ import _, {debounce} from 'lodash';
       } 
     },1000,{leading:true, trailing:false})
 
+    _goBack =_.throttle(() =>{ 
+      this.state.disabled=true  
+      this.props.navigation.navigate("Info")
+    },1000,{leading:true, trailing:false});
+
   } //End of class
 
   //Component css
@@ -288,11 +316,11 @@ import _, {debounce} from 'lodash';
 
     container: {
       flex: 1,
-      backgroundColor: 'white'
+      backgroundColor: '#FFFFFF'
     },
 
     tContainer: {
-      backgroundColor: 'white',
+      backgroundColor: '#FFFFFF',
       alignItems: 'center',
       justifyContent: 'center',
       flexDirection: 'row',
@@ -301,7 +329,7 @@ import _, {debounce} from 'lodash';
     },
 
     bcontainer: {
-      backgroundColor: 'white',
+      backgroundColor: '#FFFFFF',
       alignItems: 'center',
       justifyContent: 'center',
       paddingVertical: 2,
@@ -311,7 +339,7 @@ import _, {debounce} from 'lodash';
     buttonContainer: {
       paddingBottom: 30,
       paddingTop: 10,
-      backgroundColor: 'white',
+      backgroundColor: '#FFFFFF',
       alignItems: 'center',
       justifyContent: 'center',
       paddingVertical: 2,
@@ -331,7 +359,7 @@ import _, {debounce} from 'lodash';
     },
 
     btext: {
-      color: 'white',
+      color: '#FFFFFF',
       alignItems: 'center',
       justifyContent: 'center'
     },
@@ -381,6 +409,39 @@ import _, {debounce} from 'lodash';
     containerProducts: {
       flexDirection: 'row',
       justifyContent: 'space-between'
-    }
+    },
+
+    navBar: {
+      backgroundColor: '#FFFFFF',
+      flexDirection: 'row',
+      alignItems: 'center',
+      height: 80
+    },
+
+    circle: {
+      width: 10,
+      height: 10,
+      borderRadius: 50,
+      borderColor: '#000000',
+      borderWidth: 1
+    },
+
+    activeNav: {
+      width: 10,
+      height: 10,
+      borderRadius: 50,
+      borderColor: '#000000',
+      borderWidth: 1,
+      backgroundColor: '#1294EF'
+    },
+
+    navContainer: {
+      flex: 1,
+      flexDirection: 'row',
+      paddingTop: 20,
+      justifyContent: 'center',
+      position: 'absolute',
+      bottom: 60,
+    },
       
   });

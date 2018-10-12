@@ -13,6 +13,7 @@ import {
   } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 import _, {debounce} from 'lodash';
+import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
 
 // Screen for vehicle class selection
 export default class classScreen extends React.Component {
@@ -35,6 +36,20 @@ export default class classScreen extends React.Component {
       return (
 
         <View style={styles.container}>
+
+          <NavBar style={styles}>
+            <View paddingLeft={20}>
+              <NavButton onPress={_.debounce(() => {this._goBack()},400)}>
+                {<Image source={require('../assets/Path.png')}></Image>}
+              </NavButton>
+            </View>
+              
+            <View paddingLeft={90} paddingRight={120} paddingTop={20} paddingBottom={10}>
+              <NavTitle>
+                {<Image source={require('../assets/CARFAX-Canada.png')}></Image>}
+              </NavTitle>
+            </View>
+          </NavBar>
 
           <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
             <Text style={{ paddingLeft: 50, paddingRight: 50, fontWeight: 'bold', fontSize: 20}}>
@@ -94,11 +109,11 @@ export default class classScreen extends React.Component {
             </TouchableHighlight>
           </View>
 
-          <View style={styles.buttonContainer}>
-            <Button
-                title = 'Go back'
-                onPress={_.debounce(() => {this._onPressBack()},400)}
-            />
+          <View style={styles.navContainer}>
+            <View style={styles.circle} /><Text> </Text>
+            <View style={styles.activeNav} /><Text> </Text>
+            <View style={styles.circle} /><Text> </Text>
+            <View style={styles.circle} />
           </View>
 
         </View>
@@ -111,10 +126,10 @@ export default class classScreen extends React.Component {
       this.props.navigation.navigate("Info", {disabled:false, cId: classId, eId: eventId})
     },1000,{leading:true, trailing:false});
 
-    _onPressBack =_.throttle(() =>{ 
-        this.state.disabled=true  
-        this.props.navigation.navigate("Events", {disabled:false})
-      },1000,{leading:true, trailing:false});
+    _goBack =_.throttle(() =>{ 
+      this.state.disabled=true  
+      this.props.navigation.navigate("Events")
+    },1000,{leading:true, trailing:false});
 
   } //End of class
 
@@ -123,7 +138,7 @@ export default class classScreen extends React.Component {
 
     container: {
       flex: 1,
-      backgroundColor: 'white',
+      backgroundColor: '#FFFFFF',
       paddingHorizontal: 0
     },
 
@@ -132,7 +147,7 @@ export default class classScreen extends React.Component {
     },
 
     bcontainer: {
-      backgroundColor: 'white',
+      backgroundColor: '#FFFFFF',
       alignItems: 'center',
       justifyContent: 'center',
       paddingVertical: 2,
@@ -140,7 +155,7 @@ export default class classScreen extends React.Component {
     },
 
     bcontainer2: {
-      backgroundColor: 'white',
+      backgroundColor: '#FFFFFF',
       alignItems: 'center',
       justifyContent: 'center',
       paddingVertical: 2,
@@ -149,7 +164,7 @@ export default class classScreen extends React.Component {
     },
 
     btext: {
-      color: 'white',
+      color: '#FFFFFF',
       alignItems: 'center',
       justifyContent: 'center',
     },
@@ -165,6 +180,37 @@ export default class classScreen extends React.Component {
       height: 100,
       borderColor: '#1653bc',
       borderWidth: 1,
-    }
+    },
+
+    navBar: {
+      backgroundColor: '#FFFFFF',
+      flexDirection: 'row',
+      alignItems: 'center',
+      height: 80
+    },
+
+    circle: {
+      width: 10,
+      height: 10,
+      borderRadius: 50,
+      borderColor: '#000000',
+      borderWidth: 1
+    },
+
+    activeNav: {
+      width: 10,
+      height: 10,
+      borderRadius: 50,
+      borderColor: '#000000',
+      borderWidth: 1,
+      backgroundColor: '#1294EF'
+    },
+
+    navContainer: {
+      flex: 1,
+      flexDirection: 'row',
+      paddingTop: 20,
+      justifyContent: 'center'
+    },
 
 });

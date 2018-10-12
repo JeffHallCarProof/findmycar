@@ -11,9 +11,12 @@
   "dependencies": {
     "@ptomasroos/react-native-multi-slider": "^1.0.0",
     "expo": "^30.0.1",
+    "navbar-native": "^1.6.1",
     "react": "16.3.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-30.0.0.tar.gz",
     "react-native-modal-dropdown": "^0.6.2",
+    "react-native-nav": "^2.0.2",
+    "react-native-navigation-bar": "^0.2.1",
     "react-native-progress": "^3.5.0",
     "react-native-range-slider": "^0.1.0",
     "react-navigation": "^2.17.0"

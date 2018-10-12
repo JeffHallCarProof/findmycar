@@ -13,6 +13,7 @@ import {
   } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 import _, {debounce} from 'lodash';
+import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
 
 // Screen for people who do not know what car they want
 export default class eventScreen extends React.Component {
@@ -32,12 +33,28 @@ export default class eventScreen extends React.Component {
       this.state.disabled = navigation.getParam('disabled', false);
 
       return (
-
+        
         <View style={styles.container}>
+          <NavBar style={styles}>
+              <View paddingLeft={20}>
+                <NavButton onPress={_.debounce(() => {this._goBack()},400)}>
+                  {<Image source={require('../assets/Path.png')}></Image>}
+                </NavButton>
+              </View>
+              
+              <View paddingLeft={90} paddingRight={120} paddingTop={20} paddingBottom={10}>
+                <NavTitle>
+                  {<Image source={require('../assets/CARFAX-Canada.png')}></Image>}
+                </NavTitle>
+              </View>
+            </NavBar>
 
           <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text style={{ paddingLeft: 50, paddingRight: 50, fontWeight: 'bold', fontSize: 20}}>
-              Why are you looking for a car?
+            <Text style={{ paddingTop: 30, paddingLeft: 50, paddingRight: 50, fontWeight: 'bold', fontSize: 20}}>
+              Reason for buying a new car
+            </Text>
+            <Text style={{ paddingTop: 20, paddingBottom: 20, paddingHorizontal: 50}}>
+              Fo shizzle at fo shizzle mah nizzle fo rizzle, mah home g-dizzle dapibizzle turpis tempus i'm in the shizzle. Maurizzle pellentesque get down get down et turpizzle.
             </Text>
           </View>
 
@@ -93,6 +110,24 @@ export default class eventScreen extends React.Component {
             </TouchableHighlight>
           </View>
 
+          <View style={styles.navContainer}>
+            <View style={styles.activeNav} /><Text> </Text>
+            <View style={styles.circle} /><Text> </Text>
+            <View style={styles.circle} /><Text> </Text>
+            <View style={styles.circle} />
+          </View>
+
+          <View style={styles.button2container}>
+            <TouchableHighlight
+              underlayColor={'#0018A8'}
+              style={styles.button2}
+              onPress={_.debounce(() => {this._onPress(eventId)},400)}
+            >
+              <Text style={styles.btext}> NEXT </Text>
+            </TouchableHighlight>
+          </View>
+          
+
         </View>
 
       ); //End of return
@@ -103,6 +138,11 @@ export default class eventScreen extends React.Component {
       this.props.navigation.navigate("Class", {disabled:false, eId: eventId})
     },1000,{leading:true, trailing:false}); //End of button function
 
+    _goBack =_.throttle(() =>{ 
+      this.state.disabled=true  
+      this.props.navigation.navigate("Welcome")
+    },1000,{leading:true, trailing:false});
+
   } //End of class
 
   //Component css
@@ -110,8 +150,7 @@ export default class eventScreen extends React.Component {
 
     container: {
       flex: 1,
-      backgroundColor: 'white',
-      paddingHorizontal: 0
+      backgroundColor: '#FFFFFF'
     },
 
     contentContainer: {
@@ -119,24 +158,25 @@ export default class eventScreen extends React.Component {
     },
 
     bcontainer: {
-      backgroundColor: 'white',
+      backgroundColor: '#FFFFFF',
       alignItems: 'center',
       justifyContent: 'center',
       paddingVertical: 2,
       flexDirection: 'row',
+      paddingTop: 20
     },
 
     bcontainer2: {
-      backgroundColor: 'white',
+      backgroundColor: '#FFFFFF',
       alignItems: 'center',
       justifyContent: 'center',
       paddingVertical: 2,
       flexDirection: 'row',
-      paddingBottom: 250
+      paddingBottom: 100
     },
 
     btext: {
-      color: 'white',
+      color: '#FFFFFF',
       alignItems: 'center',
       justifyContent: 'center',
     },
@@ -152,6 +192,55 @@ export default class eventScreen extends React.Component {
       height: 100,
       borderColor: '#1653bc',
       borderWidth: 1,
-    }
+    },
+
+    button2: {
+      alignItems: 'center',
+      justifyContent: 'center',
+      backgroundColor: '#1294EF',
+      borderRadius: 4,
+      width: 100,
+      height: 50,
+      borderColor: '#1653bc',
+      borderWidth: 1,
+    },
+    
+    button2container: {
+      alignItems: 'flex-end',
+      paddingRight: 50,
+      paddingBottom: 50
+    },
+
+    navBar: {
+      backgroundColor: '#FFFFFF',
+      flexDirection: 'row',
+      alignItems: 'center',
+      height: 80
+    },
+
+    circle: {
+      width: 10,
+      height: 10,
+      borderRadius: 50,
+      borderColor: '#000000',
+      borderWidth: 1
+    },
+
+    activeNav: {
+      width: 10,
+      height: 10,
+      borderRadius: 50,
+      borderColor: '#000000',
+      borderWidth: 1,
+      backgroundColor: '#1294EF'
+    },
+
+    navContainer: {
+      flex: 1,
+      flexDirection: 'row',
+      paddingTop: 20,
+      justifyContent: 'center'
+    },
+
 
 });
