@@ -50,7 +50,7 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
 
             <Text style={styles.titleText}>Let us find the right car for you.</Text>
             <Text style={styles.contentText}>Lorizzle ipsizzle dolizzle sit amet, sizzle adipiscing elit. Sheezy i saw beyonces tizzles and my pizzle went crizzle velizzle, aliquet volutpizzle, suscipizzle quizzle, gravida vel, boofron.</Text>
-
+            <View style={styles.bContainer}>
             <TouchableHighlight
               underlayColor={'#0018A8'}
               style={styles.button}
@@ -58,6 +58,7 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
             >
               <Text style={styles.btext}> GET STARTED </Text>
             </TouchableHighlight>
+            </View>
           </View>
 
           
@@ -77,17 +78,19 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
     
     container: {
       alignItems: "center",
-      justifyContent: "space-between"
+      justifyContent: "space-between",
     },
 
     iContainer: {
-      paddingTop: 30
+      paddingTop: 30,
+      height: 220,
+      width: 200,
     },
 
     navBar: {
       flexDirection: 'row',
       alignItems: 'center',
-      height: 80
+      height: 80,
     },
 
     button: {
@@ -99,6 +102,7 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
       height: 60,
       borderColor: '#1653bc',
       borderWidth: 1,
+
     },
 
     btext: {
@@ -112,7 +116,16 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
 
     contentText: {
       paddingBottom: 50,
-      paddingHorizontal: 20
-    }
+      paddingHorizontal: 20,
+      fontSize: 20,
+    },
+    bcontainer: {
+      flex: 1,
+      backgroundColor: '#8FCAF3',
+      alignItems: 'center',
+      justifyContent: 'space-evenly',
+      position: 'absolute',
+      bottom: 0,
+    },
 
   });

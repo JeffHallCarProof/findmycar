@@ -46,7 +46,7 @@ import ProgressBar from 'react-native-progress/Bar';
                 'Content-Type':'application/json',
             }
         })
-        .then((response)=> response.json(), console.log(1))
+        .then((response)=> response.json())
         .then((responseJson)=> console.log(responseJson))
         .catch((err)=>{console.error(err)})
     };
