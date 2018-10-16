@@ -169,13 +169,9 @@ export default class classScreen extends React.Component {
   const styles = StyleSheet.create({
 
     container: {
-      flex: 1,
+      alignItems: "center",
       backgroundColor: '#FFFFFF',
-      paddingHorizontal: 0
-    },
-
-    contentContainer: {
-      paddingTop: 40
+      flex: 1
     },
 
     bcontainer: {
@@ -183,7 +179,8 @@ export default class classScreen extends React.Component {
       alignItems: 'center',
       justifyContent: 'center',
       paddingVertical: 2,
-      flexDirection: 'row'
+      flexDirection: 'row',
+      paddingTop: 20
     },
 
     bcontainer2: {
@@ -192,7 +189,7 @@ export default class classScreen extends React.Component {
       justifyContent: 'center',
       paddingVertical: 2,
       flexDirection: 'row',
-      paddingBottom: 250
+      paddingBottom: 100
     },
 
     btext: {
@@ -237,13 +234,17 @@ export default class classScreen extends React.Component {
       borderColor: '#1653bc',
       borderWidth: 1,
       position: "absolute",
-      right: 50,
+      left: 50,
       bottom: 20
+    },
+    
+    button2container: {
+      alignItems: 'flex-end',
+      paddingBottom: 50
     },
 
     navBar: {
       flexDirection: 'row',
-      alignItems: 'center',
       height: 80
     },
 
@@ -267,11 +268,7 @@ export default class classScreen extends React.Component {
     navContainer: {
       flex: 1,
       flexDirection: 'row',
-      paddingTop: 20,
       justifyContent: 'center',
-      position: "absolute",
-      bottom: 200,
-      left: 170
+      bottom: 80,
     },
-
 });

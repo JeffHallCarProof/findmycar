@@ -272,9 +272,7 @@ export default class eventScreen extends React.Component {
       flex: 1,
       flexDirection: 'row',
       justifyContent: 'center',
-      position: "absolute",
-      bottom: 220,
-      paddingBottom: 20
+      bottom: 80,
     },
 
 

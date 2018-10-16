@@ -5,10 +5,12 @@ import {
     Text,
     TouchableHighlight,
     View,
-    Image
+    Image,
+    ActivityIndicator
   } from 'react-native';
 import _, {debounce} from 'lodash';
 import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
+import Loader from '../components/loader';
 
   //preferences screen
   export default class pScreen extends React.Component {
@@ -45,9 +47,69 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
       bs5: 0,
       bs6: 0,
       bs7: 0,
-      bs8: 0
+      bs8: 0,
+      responseJson: [],
+      loading: false
     }
     
+   async getHelloW(){
+      //     https://productlab.carfax.ca/findmycar/multi/carcrash/60000/20000/12121212/6
+      /*                    
+                    "Budget",
+                    "Build Quality Rating",
+                    "Comfort Rating",
+                    "Exterior Design Rating",
+                    "Fuel Economy Rating",
+                    "Fun To Drive Rating",
+                    "Interior Design Rating ",
+                    "Make",
+                    "Model",
+                    "Performance Rating",
+                    "Reliability Rating",
+                    "Score"
+      */
+      const url = "https://productlab.carfax.ca/findmycar/multi/carcrash/60000/20000/12121212/6";
+      
+      
+      try{
+      const res = await fetch(url,console.log(url),{
+        method:'GET',
+        headers:{
+                'Accept':'application/json',
+                'Content-Type':'application/json',
+            },
+            body: JSON.stringify({
+              "type": "select",
+              "args": {
+                "table": "author",
+                "columns": [
+                  "Budget",
+                  "Build Quality Rating",
+                  "Comfort Rating",
+                  "Exterior Design Rating",
+                  "Fuel Economy Rating",
+                  "Fun To Drive Rating",
+                  "Interior Design Rating ",
+                  "Make",
+                  "Model",
+                  "Performance Rating",
+                  "Reliability Rating",
+                  "Score"
+
+                ]
+            }
+            }),
+        })
+        const rJson = await res.json();
+        const ETC1 = await this.setState({responseJson: rJson});
+        const ETC2 = await this.setState({loading: false});
+        this.props.navigation.navigate("Results", {nArray: numArray, rJson: this.state.responseJson})
+        console.log(this.state.responseJson)
+      }catch(err){
+        return console.error(err);
+      }
+
+    };
     render() {
 
       const { navigation } = this.props;
@@ -60,7 +122,8 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
       return (
 
         <View style={styles.container}>
-
+<Loader
+    loading={this.state.loading} />
           <NavBar style={styles}>
             <View paddingLeft={20}>
               <NavButton onPress={_.debounce(() => {this._goBack()},400)}>
@@ -281,9 +344,14 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
    
     // set up functions as below but add debounce
     _onPress =_.throttle((eventId, classId) =>{ 
-        alert("Event: " + eventId + "\nClass: " + classId + '\nMin: '+ min + '\nMax: '+ max + "\nPreferences: " + numArray);
+      this.setState({loading: true});
+
+        console.log("Event: " + eventId + "\nClass: " + classId + '\nMin: '+ min + '\nMax: '+ max + "\nPreferences: " + numArray);
         console.log(numArray)
-        this.props.navigation.navigate("Results", {nArray: numArray})
+        this.getHelloW();
+        console.log(this.state.loading)
+        
+      
     },1000,{leading:true, trailing:false})
 
     _goBack =_.throttle(() =>{ 
@@ -375,13 +443,13 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
 
     buttonConfirm: {
       alignItems: 'center',
-      justifyContent: 'center',
       backgroundColor: '#1294EF',
+      justifyContent: 'center',
       borderRadius: 4,
+      borderColor: '#1653bc',
+      borderWidth: 1,
       width: 340,
       height: 60,
-      borderColor: '#1653bc',
-      borderWidth: 1
     },
 
     sliderF: {
@@ -425,6 +493,12 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
       position: 'absolute',
       bottom: 130,
       left: 170
+    },
+    indicator: {
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'center',
+      height: 80
     },
       
   });

@@ -36,22 +36,58 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
       p1: true,
       p2: false,
       p3: false,
-      offset: 0
+      offset: 0,
+      i: 0,
+      responseJson: [],
     }
-    
-    getHelloW(){
-      const url = "https://productlab.carfax.ca/findmycar/";
-      fetch(url,console.log(url),{
+    //api call
+    async getHelloW(){
+      const url = "https://productlab.carfax.ca/findmycar/multi/carcrash/60000/20000/12121212/6";
+      try{
+      const res = await fetch(url,console.log(url),{
         method:'GET',
         headers:{
                 'Accept':'application/json',
                 'Content-Type':'application/json',
+            },
+            body: JSON.stringify({
+              "type": "select",
+              "args": {
+                "table": "author",
+                "columns": [
+                  "Budget",
+                  "Build Quality Rating",
+                  "Comfort Rating",
+                  "Exterior Design Rating",
+                  "Fuel Economy Rating",
+                  "Fun To Drive Rating",
+                  "Interior Design Rating ",
+                  "Make",
+                  "Model",
+                  "Performance Rating",
+                  "Reliability Rating",
+                  "Score"
+                ]
             }
+            }),
         })
-        .then((response)=> response.json())
-        .then((responseJson)=> console.log(responseJson))
-        .catch((err)=>{console.error(err)})
+        const rJson = await res.json();
+        const ETC1 = await this.setState({responseJson: rJson});
+        const ETC2 = await this.setState({loading: false});
+        this.props.navigation.navigate("Results", {nArray: numArray, rJson: this.state.responseJson})
+        console.log(this.state.responseJson)
+      }catch(err){
+        return console.error(err);
+      }
+
     };
+    //go back function
+    _goBack =_.throttle(() =>{ 
+      this.props.navigation.navigate("Preferences")
+    },1000,{leading:true, trailing:false});
+
+
+
 
     updateNavbar = (event) =>
     {
@@ -98,7 +134,8 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
     render() {
 
       const { navigation } = this.props;
-
+      this.state.overall = 0.9;
+      this.state.responseJson = navigation.getParam('rJson');
       return (
             
         <View style={styles.bcontainer}>
@@ -116,9 +153,8 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
               </NavTitle>
             </View>
           </NavBar>
-
           <View style={styles.textView}>
-            <Text style={styles.titleText}>Results Screen</Text>
+            <Text style={styles.textS}>Response: {JSON.stringify(this.state.responseJson[0].Score)}</Text>
           </View>
                
           <ScrollView horizontal={true} backgroundColor= '#8FCAF3' pagingEnabled={true} 
@@ -282,7 +318,7 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
             <TouchableHighlight
               underlayColor={'#2C74B1'}
               style={styles.button}
-              onPress={() => {this.getHelloW()}}
+              onPress={() => alert(this.state.responseJson[0].Score)}
             >
               <Text style={styles.btext}>Home</Text>
             </TouchableHighlight>
@@ -291,11 +327,6 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
 
         ); //End of return
     } //End of render
-
-    _goBack =_.throttle(() =>{ 
-      this.props.navigation.navigate("Preferences")
-    },1000,{leading:true, trailing:false});
-
 } //End of class
 
 //Component css
@@ -395,8 +426,8 @@ const styles = StyleSheet.create({
     },
 
     textView: {
-      paddingTop: 20,
-      paddingBottom: 20,
+      paddingTop: 5,
+      paddingBottom: 5,
       backgroundColor: '#8FCAF3',
     },
 
@@ -424,11 +455,9 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       paddingBottom: 40
     },
-
     navBar: {
       flexDirection: 'row',
       alignItems: 'center',
       height: 80
     }
-    
 });

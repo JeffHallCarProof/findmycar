@@ -70,6 +70,12 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
               <MultiSlider
                   values={[this.state.values[0], this.state.values[1]]}
                   sliderLength={250}
+                  touchDimensions={{
+                    height: 100,
+                    width: 100,
+                    borderRadius: 20,
+                    slipDisplacement: 100
+                  }}
                   onValuesChange={this.multiSliderValueChange}
                   min={0}
                   max={100000}
@@ -242,6 +248,7 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
     sliderView: {
       paddingTop: 50,
       justifyContent: "center"
+      
     },
 
     sliderLabelView: {
