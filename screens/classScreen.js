@@ -24,14 +24,20 @@ export default class classScreen extends React.Component {
     };
 
     state = {
-      disabled: false,
+      c1: false,
+      c2: false,
+      c3: false,
+      c4: false,
+      c5: false,
+      c6: false
     };
 
     render() {
 
       const { navigation } = this.props;
-      this.state.disabled = navigation.getParam('disabled', false);
       const eventId = navigation.getParam('eId', 'Invalid');
+      const minB = navigation.getParam('min', 'Invalid');
+      const maxB = navigation.getParam('max', 'Invalid');
 
       return (
 
@@ -51,33 +57,36 @@ export default class classScreen extends React.Component {
             </View>
           </NavBar>
 
-          <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text style={{ paddingLeft: 50, paddingRight: 50, fontWeight: 'bold', fontSize: 20}}>
-              Select a vehicle class below
+          <View style={{alignItems: 'center', justifyContent: 'center', paddingBottom: 30}}>
+            <Text style={{ paddingTop: 60, paddingHorizontal: 50, fontWeight: 'bold', fontSize: 20}}>
+              Preferred body type
+            </Text>
+            <Text style={{ paddingHorizontal: 30, paddingTop: 20, textAlign: "center"}}>
+              Fo shizzle at fo shizzle mah nizzle fo rizzle, mah home g-dizzle dapibizzle turpis tempus i'm in the shizzle.
             </Text>
           </View>
 
           <View style={styles.bcontainer}>
             <TouchableHighlight
               underlayColor={'#0018A8'}
-              style={styles.button}
-              onPress={_.debounce(() => {this._onPress(1, eventId)},400)}
+              style={[styles.button, this.state.c1 && styles.buttonT]}
+              onPress={() => this.setState({c1: true, c2: false, c3: false, c4: false, c5: false, c6: false})}
             >
               <Text style={styles.btext}> Class1 </Text>
             </TouchableHighlight><Text> </Text>
 
             <TouchableHighlight
               underlayColor={'#0018A8'}
-              style={styles.button}
-              onPress={_.debounce(() => {this._onPress(2, eventId)},400)}
+              style={[styles.button, this.state.c2 && styles.buttonT]}
+              onPress={() => this.setState({c1: false, c2: true, c3: false, c4: false, c5: false, c6: false})}
             >
               <Text style={styles.btext}> Class2 </Text>
             </TouchableHighlight><Text> </Text>
 
             <TouchableHighlight
               underlayColor={'#0018A8'}
-              style={styles.button}
-              onPress={_.debounce(() => {this._onPress(3, eventId)},400)}
+              style={[styles.button, this.state.c3 && styles.buttonT]}
+              onPress={() => this.setState({c1: false, c2: false, c3: true, c4: false, c5: false, c6: false})}
             >
               <Text style={styles.btext}> Class3 </Text>
             </TouchableHighlight>
@@ -86,24 +95,24 @@ export default class classScreen extends React.Component {
           <View style={styles.bcontainer2}>
             <TouchableHighlight
               underlayColor={'#0018A8'}
-              style={styles.button}
-              onPress={_.debounce(() => {this._onPress(4, eventId)},400)}
+              style={[styles.button, this.state.c4 && styles.buttonT]}
+              onPress={() => this.setState({c1: false, c2: false, c3: false, c4: true, c5: false, c6: false})}
             >
               <Text style={styles.btext}> Class4 </Text>
             </TouchableHighlight><Text> </Text>
 
             <TouchableHighlight
               underlayColor={'#0018A8'}
-              style={styles.button}
-              onPress={_.debounce(() => {this._onPress(5, eventId)},400)}
+              style={[styles.button, this.state.c5 && styles.buttonT]}
+              onPress={() => this.setState({c1: false, c2: false, c3: false, c4: false, c5: true, c6: false})}
             >
               <Text style={styles.btext}> Class5 </Text>
             </TouchableHighlight><Text> </Text>
 
             <TouchableHighlight
               underlayColor={'#0018A8'}
-              style={styles.button}
-              onPress={_.debounce(() => {this._onPress(6, eventId)},400)}
+              style={[styles.button, this.state.c6 && styles.buttonT]}
+              onPress={() => this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: true})}
             >
               <Text style={styles.btext}> Other </Text>
             </TouchableHighlight>
@@ -111,9 +120,19 @@ export default class classScreen extends React.Component {
 
           <View style={styles.navContainer}>
             <View style={styles.circle} /><Text> </Text>
-            <View style={styles.activeNav} /><Text> </Text>
             <View style={styles.circle} /><Text> </Text>
+            <View style={styles.activeNav} /><Text> </Text>
             <View style={styles.circle} />
+          </View>
+
+          <View style={styles.button2container}>
+            <TouchableHighlight
+              underlayColor={'#0018A8'}
+              style={styles.button2}
+              onPress={_.debounce(() => {this._onPress(eventId, minB, maxB)},400)}
+            >
+              <Text style={styles.btext}> NEXT </Text>
+            </TouchableHighlight>
           </View>
 
         </View>
@@ -121,14 +140,27 @@ export default class classScreen extends React.Component {
       ); //End of return
     } //End of render
 
-    _onPress =_.throttle((classId, eventId) =>{ 
-      this.state.disabled=true  
-      this.props.navigation.navigate("Info", {disabled:false, cId: classId, eId: eventId})
+    _onPress =_.throttle((eventId, minB, maxB) =>{ 
+      
+      if(this.state.c1 == true){
+        classId = 1
+      } else if(this.state.c2 == true) {
+        classId = 2
+      } else if(this.state.c3 == true) {
+        classId = 3
+      } else if(this.state.c4 == true) {
+        classId = 4
+      } else if(this.state.c5 == true) {
+        classId = 5
+      } else {
+        classId = 6
+      }
+      
+      this.props.navigation.navigate("Preferences", {disabled:false, cId: classId, eId: eventId, min: minB, max: maxB})
     },1000,{leading:true, trailing:false});
 
     _goBack =_.throttle(() =>{ 
-      this.state.disabled=true  
-      this.props.navigation.navigate("Events")
+      this.props.navigation.navigate("Info")
     },1000,{leading:true, trailing:false});
 
   } //End of class
@@ -151,7 +183,7 @@ export default class classScreen extends React.Component {
       alignItems: 'center',
       justifyContent: 'center',
       paddingVertical: 2,
-      flexDirection: 'row',
+      flexDirection: 'row'
     },
 
     bcontainer2: {
@@ -182,8 +214,34 @@ export default class classScreen extends React.Component {
       borderWidth: 1,
     },
 
+    buttonT: {
+      alignItems: 'center',
+      justifyContent: 'center',
+      backgroundColor: '#0018A8',
+      padding: 20,
+      paddingHorizontal: 10,
+      borderRadius: 4,
+      width: 100,
+      height: 100,
+      borderColor: '#1653bc',
+      borderWidth: 1,
+    },
+
+    button2: {
+      alignItems: 'center',
+      justifyContent: 'center',
+      backgroundColor: '#1294EF',
+      borderRadius: 4,
+      width: 100,
+      height: 50,
+      borderColor: '#1653bc',
+      borderWidth: 1,
+      position: "absolute",
+      right: 50,
+      bottom: 20
+    },
+
     navBar: {
-      backgroundColor: '#FFFFFF',
       flexDirection: 'row',
       alignItems: 'center',
       height: 80
@@ -210,7 +268,10 @@ export default class classScreen extends React.Component {
       flex: 1,
       flexDirection: 'row',
       paddingTop: 20,
-      justifyContent: 'center'
+      justifyContent: 'center',
+      position: "absolute",
+      bottom: 200,
+      left: 170
     },
 
 });

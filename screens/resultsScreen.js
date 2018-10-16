@@ -10,6 +10,8 @@ import {
   } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 import ProgressBar from 'react-native-progress/Bar';
+import _, {debounce} from 'lodash';
+import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
 
   const width = 375
 
@@ -96,11 +98,25 @@ import ProgressBar from 'react-native-progress/Bar';
     render() {
 
       const { navigation } = this.props;
-      this.state.overall = 0.9;
 
       return (
             
         <View style={styles.bcontainer}>
+
+          <NavBar style={styles}>
+            <View paddingLeft={20}>
+              <NavButton onPress={_.debounce(() => {this._goBack()},400)}>
+                {<Image source={require('../assets/Path.png')}></Image>}
+              </NavButton>
+            </View>
+              
+            <View paddingLeft={90} paddingRight={120} paddingTop={20} paddingBottom={10}>
+              <NavTitle>
+                {<Image source={require('../assets/CARFAX-Canada.png')}></Image>}
+              </NavTitle>
+            </View>
+          </NavBar>
+
           <View style={styles.textView}>
             <Text style={styles.titleText}>Results Screen</Text>
           </View>
@@ -275,6 +291,11 @@ import ProgressBar from 'react-native-progress/Bar';
 
         ); //End of return
     } //End of render
+
+    _goBack =_.throttle(() =>{ 
+      this.props.navigation.navigate("Preferences")
+    },1000,{leading:true, trailing:false});
+
 } //End of class
 
 //Component css
@@ -374,7 +395,7 @@ const styles = StyleSheet.create({
     },
 
     textView: {
-      paddingTop: 50,
+      paddingTop: 20,
       paddingBottom: 20,
       backgroundColor: '#8FCAF3',
     },
@@ -402,6 +423,12 @@ const styles = StyleSheet.create({
     topContainer: {
       alignItems: 'center',
       paddingBottom: 40
+    },
+
+    navBar: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      height: 80
     }
     
 });

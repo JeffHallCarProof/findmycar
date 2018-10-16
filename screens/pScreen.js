@@ -38,7 +38,6 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
       p14: false,
       p15: false,
       p16: false,
-      disabled: false,
       bs1: 0,
       bs2: 0,
       bs3: 0,
@@ -258,19 +257,12 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
 
           <View style={styles.buttonContainer}>
 
-            <Button
-             title="Go back"
-             onPress={_.debounce(() => {this._onPress(eventId, classId, 1)},400)}
-            />
-
-            <Text></Text>
-
             <TouchableHighlight
               underlayColor={'#0018A8'}
               style={styles.buttonConfirm}
-              onPress={_.debounce(() => {this._onPress(eventId, classId, 0)},400)}
+              onPress={_.debounce(() => {this._onPress(eventId, classId)},400)}
             >
-              <Text style={styles.btext}>Confirm</Text>
+              <Text style={styles.btext}>FIND MY CAR</Text>
             </TouchableHighlight>
 
           </View>
@@ -288,25 +280,14 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
     } //End of render
    
     // set up functions as below but add debounce
-    _onPress =_.throttle((eventId, classId, bId) =>{ 
-      this.state.disabled=true   
-      if(JSON.stringify(bId)==1)
-      {
-        console.log(numArray)
-        this.props.navigation.navigate("Info")
-      }
-      else
-      {
+    _onPress =_.throttle((eventId, classId) =>{ 
         alert("Event: " + eventId + "\nClass: " + classId + '\nMin: '+ min + '\nMax: '+ max + "\nPreferences: " + numArray);
         console.log(numArray)
-        
         this.props.navigation.navigate("Results", {nArray: numArray})
-      } 
     },1000,{leading:true, trailing:false})
 
     _goBack =_.throttle(() =>{ 
-      this.state.disabled=true  
-      this.props.navigation.navigate("Info")
+      this.props.navigation.navigate("Class")
     },1000,{leading:true, trailing:false});
 
   } //End of class
@@ -394,9 +375,11 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
 
     buttonConfirm: {
       alignItems: 'center',
+      justifyContent: 'center',
       backgroundColor: '#1294EF',
-      padding: 10,
       borderRadius: 4,
+      width: 340,
+      height: 60,
       borderColor: '#1653bc',
       borderWidth: 1
     },
@@ -412,7 +395,6 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
     },
 
     navBar: {
-      backgroundColor: '#FFFFFF',
       flexDirection: 'row',
       alignItems: 'center',
       height: 80
@@ -441,7 +423,8 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
       paddingTop: 20,
       justifyContent: 'center',
       position: 'absolute',
-      bottom: 60,
+      bottom: 130,
+      left: 170
     },
       
   });

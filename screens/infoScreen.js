@@ -23,7 +23,6 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
     };
 
     state = {
-      disabled: false,
       values: [0, 50000]
     };
 
@@ -36,7 +35,6 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
       
       const { navigation } = this.props;
       const eventId = navigation.getParam('eId', 'Invalid');
-      const classId = navigation.getParam('cId', 'Invalid');
       var min = this.state.values[0];
       var max = this.state.values[1];
 
@@ -60,18 +58,12 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
 
           <View style={styles.bcontainer}>
           
-            <View style={styles.sliderLabelView3}>
-              <Text style={styles.infoText}>Set your budget below</Text>
+            <View style={styles.sliderLabelView2}>
+              <Text style={styles.infoText}>What's your budget?</Text>
             </View>
 
             <View style={styles.sliderLabelView}>
-              <View style={styles.sliderLabelView2}>
-                <Text style={styles.sliderLabel1}>Budget</Text>
-              </View>
-              <Text style={styles.sliderLabel2}>Minimum: ${this.state.values[0]}</Text>
-              {this.state.values[1] == 100000?
-              <Text style={styles.sliderLabel3}>Maximum: No Limit</Text>:<Text style={styles.sliderLabel3}>Maximum: ${this.state.values[1]}</Text>}
-               
+              <Text style={styles.sliderLabel1}>Fo shizzle at fo shizzle mah nizzle fo rizzle, mah home g-dizzle dapibizzle turpis tempus i'm in the shizzle. Maurizzle pellentesque get down get down et turpizzle.</Text>
             </View>
 
             <View style={styles.sliderView}>
@@ -84,11 +76,11 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
                   step={1000}
                   unselectedStyle={{
                     height: 3,
-                    backgroundColor: '#E74C3C'
+                    backgroundColor: '#E2E2E2'
                   }}
                   selectedStyle={{
                     height: 3,
-                    backgroundColor: '#39B54A'
+                    backgroundColor: '#1294EF'
                   }}
                   markerStyle={{
                     height: 20,
@@ -97,54 +89,56 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
               />
             </View>
 
+            <View style={{paddingTop: 10, flexDirection: "row", paddingBottom: 200}}>
+              <View style={{paddingRight: 90}}>
+                <Text style={styles.sliderLabel2}>${this.state.values[0]}</Text>
+              </View>
+              <View style={{paddingLeft: 90}}>
+                {this.state.values[1] == 100000?
+                <Text style={styles.sliderLabel3}>ANY</Text>:<Text style={styles.sliderLabel3}>${this.state.values[1]}</Text>}
+              </View>
+              
+              
+            </View>
+
           </View>
           
-          <View style={styles.buttonContainer}>
-
-            <Button
-              title = 'Go back'
-              onPress={_.debounce(() => {this._onPress(eventId, classId, 1, min, max)},400)}
-            />
-            <TouchableHighlight
-              underlayColor={'#0018A8'}
-              style={styles.button}
-              onPress={_.debounce(() => {this._onPress(eventId, classId, 0, min, max)},400)}
-            >
-              <Text style={styles.btext}> Confirm </Text>
-            </TouchableHighlight>
-
-          </View>
-
           <View style={styles.navContainer}>
             <View style={styles.circle} /><Text> </Text>
-            <View style={styles.circle} /><Text> </Text>
             <View style={styles.activeNav} /><Text> </Text>
+            <View style={styles.circle} /><Text> </Text>
             <View style={styles.circle} />
           </View>
 
+          <View style={styles.buttonContainer}>
+
+            <TouchableHighlight
+              underlayColor={'#0018A8'}
+              style={styles.button}
+              onPress={_.debounce(() => {this._onPress(eventId, min, max)},400)}
+            >
+              <Text style={styles.btext}> NEXT </Text>
+            </TouchableHighlight>
+
+          </View>
         </View>
         
       ); //End of return
     } //End of render
 
     // set up functions as below but add debounce
-    _onPress =_.throttle((eventId, classId, bId, min, max) =>{ 
-      this.state.disabled=true   
+    _onPress =_.throttle((eventId, min, max) =>{ 
 
-      if(JSON.stringify(bId)==1){
-        this.props.navigation.navigate('Class')
-      } else{
-        if (max == 1000000){
-          max = 99999999999}
-        
-        this.props.navigation.navigate('Preferences', {eId: eventId, cId: classId, min, max})
-      }
+        if (max == 1000000)
+        {
+          max = 99999999999
+        }
+        this.props.navigation.navigate('Class', {eId: eventId, min, max})
       
     },1000,{leading:true, trailing:false});
 
     _goBack =_.throttle(() =>{ 
-      this.state.disabled=true  
-      this.props.navigation.navigate("Class")
+      this.props.navigation.navigate("Events")
     },1000,{leading:true, trailing:false});
 
   } //End of class
@@ -184,11 +178,16 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
 
     button: {
       alignItems: 'center',
+      justifyContent: 'center',
       backgroundColor: '#1294EF',
-      padding: 10,
       borderRadius: 4,
+      width: 100,
+      height: 50,
       borderColor: '#1653bc',
       borderWidth: 1,
+      position: "absolute",
+      right: 40,
+      bottom: 50
     },
 
     inputContainer: {
@@ -246,35 +245,20 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
     },
 
     sliderLabelView: {
-      paddingTop: 30
+      paddingTop: 10
     },
 
     sliderLabelView2: {
-      alignItems: "center"
-    },
-
-    sliderLabelView3: {
       alignItems: "center",
-      paddingBottom: 30,
+      paddingBottom: 20,
       paddingLeft: 20,
       paddingRight: 20
     },
 
     sliderLabel1: {
-      fontSize: 18,
-      fontWeight: 'bold',
-      textDecorationLine: 'underline'
-    },
-
-    sliderLabel2: {
       fontSize: 16,
-      fontWeight: 'bold',
-      paddingTop: 10
-    },
-
-    sliderLabel3: {
-      fontSize: 16,
-      fontWeight: 'bold'
+      textAlign: "center",
+      paddingHorizontal: 10
     },
 
     infoText: {
@@ -283,7 +267,6 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
     },
 
     navBar: {
-      backgroundColor: '#FFFFFF',
       flexDirection: 'row',
       alignItems: 'center',
       height: 80
@@ -309,8 +292,10 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
     navContainer: {
       flex: 1,
       flexDirection: 'row',
-      paddingTop: 20,
-      justifyContent: 'center'
+      justifyContent: 'center',
+      position: "absolute",
+      bottom: 220,
+      right: 160,
     },
 
   });
