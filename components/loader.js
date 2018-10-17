@@ -57,7 +57,8 @@ const styles = StyleSheet.create({
       borderRadius: 10,
       display: 'flex',
       alignItems: 'center',
-      justifyContent: 'space-around'
+      justifyContent: 'space-around',
+      
     }
   });
 export default Loader;

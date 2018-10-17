@@ -157,171 +157,254 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
             </View>
           </NavBar>
                
-          <ScrollView horizontal={true} backgroundColor= '#8FCAF3' pagingEnabled={true} 
+          <ScrollView horizontal={true} backgroundColor= '#FFFFFF' pagingEnabled={true} 
             onMomentumScrollEnd = { this.updateNavbar } bounces = {false}
             scrollEventThrottle = { 12 } showsHorizontalScrollIndicator={false}
           >
             <View style={styles.colContainer}>
               <View style={styles.topContainer}>
-                <View style={styles.carTitleContainer}>
-                  <Text style={styles.carTitle}>{this.state.responseJson[0].Make + this.state.responseJson[0].Model}</Text>
-                </View>
+
                 <View style={styles.images}>
                   <Image source={require('../assets/sampleCar.png')}/>
+                  <View style={styles.carTitleContainer}>
+                  <Text style={styles.carTitle}>{this.state.responseJson[0].Make +" "+ this.state.responseJson[0].Model}</Text>
+                </View>
                 </View>
               </View>
               
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Comfort </Text>
-                <ProgressBar progress={(this.state.responseJson[0].Comfort_Rating/5)} unfilledColor={'#c8c9d1'} color={'#0018A8'} height={18}  borderRadius={4}/>
+                <ProgressBar progress={(this.state.responseJson[0].Comfort_Rating)} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}  borderRadius={10}/>
               </View>
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Fuel Economy </Text>
-                <ProgressBar progress={(this.state.responseJson[0].Fuel_Economy_Rating/5)} unfilledColor={'#c8c9d1'} height={18} color={'#0018A8'} borderRadius={4}/>
+                <ProgressBar progress={(this.state.responseJson[0].Fuel_Economy_Rating)} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
               </View>
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Build Quality </Text>
-                <ProgressBar progress={(this.state.responseJson[0].Build_Quality_Rating/5)} unfilledColor={'#c8c9d1'} height={18} color={'#0018A8'} borderRadius={4}/>
+                <ProgressBar progress={(this.state.responseJson[0].Build_Quality_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
               </View>
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Reliability </Text>
-                <ProgressBar progress={(this.state.responseJson[0].Reliability_Rating/5)} unfilledColor={'#c8c9d1'} height={18} color={'#0018A8'} borderRadius={4}/>
+                <ProgressBar progress={(this.state.responseJson[0].Reliability_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
               </View>
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Fun </Text>
-                <ProgressBar progress={(this.state.responseJson[0].Fun_To_Drive_Rating/5)} unfilledColor={'#c8c9d1'} height={18} color={'#0018A8'} borderRadius={4}/>
+                <ProgressBar progress={(this.state.responseJson[0].Fun_To_Drive_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
               </View>
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Performance </Text>
-                <ProgressBar progress={(this.state.responseJson[0].Performance_Rating/5)} unfilledColor={'#c8c9d1'} height={18} color={'#0018A8'} borderRadius={4}/>
-              </View>
+                <ProgressBar progress={(this.state.responseJson[0].Performance_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
+              </View> 
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Interior Style </Text>
-                <ProgressBar progress={(this.state.responseJson[0].Interior_Design_Rating/5)} unfilledColor={'#c8c9d1'} height={18} color={'#0018A8'} borderRadius={4}/>
+                <ProgressBar progress={(this.state.responseJson[0].Interior_Design_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
               </View>
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Exterior Style </Text>
-                <ProgressBar progress={(this.state.responseJson[0].Exterior_Design_Rating/5)} unfilledColor={'#c8c9d1'} height={18} color={'#0018A8'} borderRadius={4}/>
+                <ProgressBar progress={(this.state.responseJson[0].Exterior_Design_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF#1294EF'} height={12} width={200}   borderRadius={10}/>
               </View>
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Overall </Text>
-                <ProgressBar progress={(this.state.responseJson[0].Score/60)} unfilledColor={'#c8c9d1'} height={18} color={'#0018A8'} borderRadius={4}/>
+                <ProgressBar progress={(this.state.responseJson[0].Score/12)} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
               </View>
             </View>
             <View style={styles.colContainer}>
               <View style={styles.topContainer}>
-                <View style={styles.carTitleContainer}>
-                  <Text style={styles.carTitle}>{this.state.responseJson[1].Make + this.state.responseJson[1].Model}</Text>
-                </View>
+
                 <View style={styles.images}>
                   <Image source={require('../assets/sampleCar2.png')}/>
+                  <View style={styles.carTitleContainer}>
+                  <Text style={styles.carTitle}>{this.state.responseJson[1].Make +" "+ this.state.responseJson[1].Model}</Text>
+                </View>
                 </View>
               </View>
               
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Comfort </Text>
-                <ProgressBar progress={(this.state.responseJson[1].Comfort_Rating/5)} unfilledColor={'#c8c9d1'} color={'#0018A8'} height={18}  borderRadius={4}/>
+                <ProgressBar progress={(this.state.responseJson[1].Comfort_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
               </View>
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Fuel Economy </Text>
-                <ProgressBar progress={(this.state.responseJson[1].Fuel_Economy_Rating/5)} unfilledColor={'#c8c9d1'} height={18} color={'#0018A8'} borderRadius={4}/>
+                <ProgressBar progress={(this.state.responseJson[1].Fuel_Economy_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
               </View>
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Build Quality </Text>
-                <ProgressBar progress={(this.state.responseJson[1].Build_Quality_Rating/5)} unfilledColor={'#c8c9d1'} height={18} color={'#0018A8'} borderRadius={4}/>
+                <ProgressBar progress={(this.state.responseJson[1].Build_Quality_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
               </View>
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Reliability </Text>
-                <ProgressBar progress={(this.state.responseJson[1].Reliability_Rating/5)} unfilledColor={'#c8c9d1'} height={18} color={'#0018A8'} borderRadius={4}/>
+                <ProgressBar progress={(this.state.responseJson[1].Reliability_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
               </View>
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Fun </Text>
-                <ProgressBar progress={(this.state.responseJson[1].Fun_To_Drive_Rating/5)} unfilledColor={'#c8c9d1'} height={18} color={'#0018A8'} borderRadius={4}/>
+                <ProgressBar progress={(this.state.responseJson[1].Fun_To_Drive_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
               </View>
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Performance </Text>
-                <ProgressBar progress={(this.state.responseJson[1].Performance_Rating/5)} unfilledColor={'#c8c9d1'} height={18} color={'#0018A8'} borderRadius={4}/>
+                <ProgressBar progress={(this.state.responseJson[1].Performance_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
               </View>
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Interior Style </Text>
-                <ProgressBar progress={(this.state.responseJson[1].Interior_Design_Rating/5)} unfilledColor={'#c8c9d1'} height={18} color={'#0018A8'} borderRadius={4}/>
+                <ProgressBar progress={(this.state.responseJson[1].Interior_Design_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
               </View>
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Exterior Style </Text>
-                <ProgressBar progress={(this.state.responseJson[1].Exterior_Design_Rating/5)} unfilledColor={'#c8c9d1'} height={18} color={'#0018A8'} borderRadius={4}/>
+                <ProgressBar progress={(this.state.responseJson[1].Exterior_Design_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
               </View>
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Overall </Text>
-                <ProgressBar progress={(this.state.responseJson[1].Score/60)} unfilledColor={'#c8c9d1'} height={18} color={'#0018A8'} borderRadius={4}/>
+                <ProgressBar progress={(this.state.responseJson[1].Score/12)} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
               </View>
 
 
             </View> <View style={styles.colContainer}>
               <View style={styles.topContainer}>
-                <View style={styles.carTitleContainer}>
-                  <Text style={styles.carTitle}>{this.state.responseJson[2].Make + this.state.responseJson[2].Model}</Text>
-                </View>
+
                 <View style={styles.images}>
                   <Image source={require('../assets/sampleCar3.png')}/>
+                  <View style={styles.carTitleContainer}>
+                  <Text style={styles.carTitle}>{this.state.responseJson[2].Make +" "+ this.state.responseJson[2].Model}</Text>
+                </View>
                 </View>
               </View>
               
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Comfort </Text>
-                <ProgressBar progress={(this.state.responseJson[2].Comfort_Rating/5)} unfilledColor={'#c8c9d1'} color={'#0018A8'} height={18}  borderRadius={4}/>
+                <ProgressBar progress={(this.state.responseJson[2].Comfort_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
               </View>
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Fuel Economy </Text>
-                <ProgressBar progress={(this.state.responseJson[2].Fuel_Economy_Rating/5)} unfilledColor={'#c8c9d1'} height={18} color={'#0018A8'} borderRadius={4}/>
+                <ProgressBar progress={(this.state.responseJson[2].Fuel_Economy_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
               </View>
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Build Quality </Text>
-                <ProgressBar progress={(this.state.responseJson[2].Build_Quality_Rating/5)} unfilledColor={'#c8c9d1'} height={18} color={'#0018A8'} borderRadius={4}/>
+                <ProgressBar progress={(this.state.responseJson[2].Build_Quality_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
               </View>
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Reliability </Text>
-                <ProgressBar progress={(this.state.responseJson[2].Reliability_Rating/5)} unfilledColor={'#c8c9d1'} height={18} color={'#0018A8'} borderRadius={4}/>
+                <ProgressBar progress={(this.state.responseJson[2].Reliability_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
               </View>
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Fun </Text>
-                <ProgressBar progress={(this.state.responseJson[2].Fun_To_Drive_Rating/5)} unfilledColor={'#c8c9d1'} height={18} color={'#0018A8'} borderRadius={4}/>
+                <ProgressBar progress={(this.state.responseJson[2].Fun_To_Drive_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
               </View>
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Performance </Text>
-                <ProgressBar progress={(this.state.responseJson[2].Performance_Rating/5)} unfilledColor={'#c8c9d1'} height={18} color={'#0018A8'} borderRadius={4}/>
+                <ProgressBar progress={(this.state.responseJson[2].Performance_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
               </View>
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Interior Style </Text>
-                <ProgressBar progress={(this.state.responseJson[2].Interior_Design_Rating/5)} unfilledColor={'#c8c9d1'} height={18} color={'#0018A8'} borderRadius={4}/>
+                <ProgressBar progress={(this.state.responseJson[2].Interior_Design_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
               </View>
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Exterior Style </Text>
-                <ProgressBar progress={(this.state.responseJson[2].Exterior_Design_Rating/5)} unfilledColor={'#c8c9d1'} height={18} color={'#0018A8'} borderRadius={4}/>
+                <ProgressBar progress={(this.state.responseJson[2].Exterior_Design_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
               </View>
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Overall </Text>
-                <ProgressBar progress={(this.state.responseJson[2].Score/60)} unfilledColor={'#c8c9d1'} height={18} color={'#0018A8'} borderRadius={4}/>
+                <ProgressBar progress={(this.state.responseJson[2].Score/12)} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
               </View>
             </View>
-           
+            <View style={styles.colContainer}>
+              <View style={styles.topContainer}>
+
+                <View style={styles.images}>
+                  <Image source={require('../assets/sampleCar.png')}/>
+                  <View style={styles.carTitleContainer}>
+                  <Text style={styles.carTitle}>{this.state.responseJson[3].Make +" "+ this.state.responseJson[3].Model}</Text>
+                </View>
+                </View>
+              </View>
+              
+              <View style={styles.rowContainer}>
+                <Text style={styles.colText}> Comfort </Text>
+                <ProgressBar progress={(this.state.responseJson[3].Comfort_Rating)} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
+              </View>
+              <View style={styles.rowContainer}>
+                <Text style={styles.colText}> Fuel Economy </Text>
+                <ProgressBar progress={(this.state.responseJson[3].Fuel_Economy_Rating)} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
+              </View>
+              <View style={styles.rowContainer}>
+                <Text style={styles.colText}> Build Quality </Text>
+                <ProgressBar progress={(this.state.responseJson[3].Build_Quality_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
+              </View>
+              <View style={styles.rowContainer}>
+                <Text style={styles.colText}> Reliability </Text>
+                <ProgressBar progress={(this.state.responseJson[3].Reliability_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
+              </View>
+              <View style={styles.rowContainer}>
+                <Text style={styles.colText}> Fun </Text>
+                <ProgressBar progress={(this.state.responseJson[3].Fun_To_Drive_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
+              </View>
+              <View style={styles.rowContainer}>
+                <Text style={styles.colText}> Performance </Text>
+                <ProgressBar progress={(this.state.responseJson[3].Performance_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
+              </View> 
+              <View style={styles.rowContainer}>
+                <Text style={styles.colText}> Interior Style </Text>
+                <ProgressBar progress={(this.state.responseJson[3].Interior_Design_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
+              </View>
+              <View style={styles.rowContainer}>
+                <Text style={styles.colText}> Exterior Style </Text>
+                <ProgressBar progress={(this.state.responseJson[3].Exterior_Design_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
+              </View>
+              <View style={styles.rowContainer}>
+                <Text style={styles.colText}> Overall </Text>
+                <ProgressBar progress={(this.state.responseJson[3].Score/12)} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
+              </View>
+            </View>
+            <View style={styles.colContainer}>
+              <View style={styles.topContainer}>
+
+                <View style={styles.images}>
+                  <Image source={require('../assets/sampleCar.png')}/>
+                  <View style={styles.carTitleContainer}>
+                  <Text style={styles.carTitle}>{this.state.responseJson[4].Make +" "+ this.state.responseJson[4].Model}</Text>
+                </View>
+                </View>
+              </View>
+              
+              <View style={styles.rowContainer}>
+                <Text style={styles.colText}> Comfort </Text>
+                <ProgressBar progress={(this.state.responseJson[4].Comfort_Rating)} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
+              </View>
+              <View style={styles.rowContainer}>
+                <Text style={styles.colText}> Fuel Economy </Text>
+                <ProgressBar progress={(this.state.responseJson[4].Fuel_Economy_Rating)} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
+              </View>
+              <View style={styles.rowContainer}>
+                <Text style={styles.colText}> Build Quality </Text>
+                <ProgressBar progress={(this.state.responseJson[4].Build_Quality_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
+              </View>
+              <View style={styles.rowContainer}>
+                <Text style={styles.colText}> Reliability </Text>
+                <ProgressBar progress={(this.state.responseJson[4].Reliability_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
+              </View>
+              <View style={styles.rowContainer}>
+                <Text style={styles.colText}> Fun </Text>
+                <ProgressBar progress={(this.state.responseJson[4].Fun_To_Drive_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
+              </View>
+              <View style={styles.rowContainer}>
+                <Text style={styles.colText}> Performance </Text>
+                <ProgressBar progress={(this.state.responseJson[4].Performance_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
+              </View> 
+              <View style={styles.rowContainer}>
+                <Text style={styles.colText}> Interior Style </Text>
+                <ProgressBar progress={(this.state.responseJson[4].Interior_Design_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
+              </View>
+              <View style={styles.rowContainer}>
+                <Text style={styles.colText}> Exterior Style </Text>
+                <ProgressBar progress={(this.state.responseJson[4].Exterior_Design_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
+              </View>
+              <View style={styles.rowContainer}>
+                <Text style={styles.colText}> Overall </Text>
+                <ProgressBar progress={(this.state.responseJson[4].Score/12)} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
+              </View>
+            </View>
 
           </ScrollView>
 
-          <View style={styles.navContainer}>
-            <View style={[styles.circle, this.state.p1 && styles.activeNav]} /><Text> </Text>
-            <View style={[styles.circle, this.state.p2 && styles.activeNav]} /><Text> </Text>
-            <View style={[styles.circle, this.state.p3 && styles.activeNav]} />
-          </View>
-
-          <View style={styles.Progressbutton}>
-            <TouchableHighlight
-              underlayColor={'#2C74B1'}
-              style={styles.button}
-              onPress={() => console.log((this.state.responseJson[0].Build_Quality_Rating))}
-            >
-              <Text style={styles.btext}>Home</Text>
-            </TouchableHighlight>
-          </View> 
         </View>
 
         ); //End of return
@@ -339,7 +422,7 @@ const styles = StyleSheet.create({
 
     bcontainer: {
       flex: 1,
-      backgroundColor: '#8FCAF3',
+      backgroundColor: '#F9F9F9',
       alignItems: 'center',
       justifyContent: 'space-evenly'
     },
@@ -363,7 +446,7 @@ const styles = StyleSheet.create({
       paddingTop: 15,
       paddingLeft: 15,
       paddingRight: 15,
-      borderColor: '#1653bc',
+      borderColor: '#F9F9F9',
       borderWidth: 1,
       width: 375,
     },
@@ -413,7 +496,7 @@ const styles = StyleSheet.create({
     colText: {
       textAlign: 'center',
       justifyContent: 'space-between',
-      color: '#FFFFFF',
+      color: '#000000',
       fontSize: 18,
       paddingBottom: 5,
     },
@@ -432,16 +515,17 @@ const styles = StyleSheet.create({
 
     images: {
       width: 310,
-      height: 185,
+      height: 205,
       borderWidth: 2,
-      borderColor: '#1653bc',
+      borderColor: '#CFCFD1',
+      backgroundColor: '#FFFFFF',
       borderRadius: 4,
     },
 
     carTitle: {
       fontWeight: 'bold',
       fontSize: 18,
-      color: '#FFFFFF',
+      color: '#000000',
       textAlign: 'center',
       paddingBottom: 5,
     },
