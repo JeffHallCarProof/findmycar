@@ -119,10 +119,10 @@ export default class classScreen extends React.Component {
           </View>
 
           <View style={styles.navContainer}>
-            <View style={styles.circle} /><Text> </Text>
-            <View style={styles.circle} /><Text> </Text>
-            <View style={styles.activeNav} /><Text> </Text>
-            <View style={styles.circle} />
+            <View style={styles.navCircles}><View style={styles.circle}/></View>
+            <View style={styles.navCircles}><View style={styles.circle}/></View>
+            <View style={styles.navCircles}><View style={styles.activeNav}/></View>
+            <View style={styles.navCircles}><View style={styles.circle}/></View>
           </View>
 
           <View style={styles.button2container}>
@@ -249,18 +249,18 @@ export default class classScreen extends React.Component {
     },
 
     circle: {
-      width: 10,
-      height: 10,
+      width: 13,
+      height: 13,
       borderRadius: 50,
-      borderColor: '#000000',
+      borderColor: '#D8D8D8',
       borderWidth: 1
     },
 
     activeNav: {
-      width: 10,
-      height: 10,
+      width: 13,
+      height: 13,
       borderRadius: 50,
-      borderColor: '#000000',
+      borderColor: '#D8D8D8',
       borderWidth: 1,
       backgroundColor: '#1294EF'
     },
@@ -268,7 +268,11 @@ export default class classScreen extends React.Component {
     navContainer: {
       flex: 1,
       flexDirection: 'row',
-      justifyContent: 'center',
-      bottom: 80,
+      justifyContent: 'center'
     },
+
+    navCircles: {
+      paddingHorizontal: 4
+    }
+
 });

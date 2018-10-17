@@ -81,9 +81,9 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
     },
 
     iContainer: {
-      paddingTop: 30,
-      height: 220,
-      width: 200
+      paddingTop: 50,
+      height: 124,
+      width: 208
     },
 
     navBar: {
@@ -97,26 +97,32 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
       justifyContent: 'center',
       backgroundColor: '#1294EF',
       borderRadius: 4,
-      width: 340,
-      height: 60,
-      borderColor: '#1653bc',
-      borderWidth: 1
+      width: 337,
+      height: 59
     },
 
     btext: {
-      color: "#FFFFFF"
+      color: "#FFFFFF",
+      fontSize: 16,
+      fontWeight: 'bold',
+      lineHeight: 19
     },
 
     titleText: {
+      paddingTop: 80,
       paddingBottom: 20,
-      fontSize: 24
+      fontSize: 24,
+      textAlign: "center",
+      lineHeight: 28,
+      fontWeight: '300'
     },
 
     contentText: {
-      paddingBottom: 100,
+      paddingBottom: 80,
       paddingHorizontal: 20,
-      fontSize: 16,
-      textAlign: "center"
+      fontSize: 14,
+      textAlign: "center",
+      lineHeight: 30
     },
 
     bcontainer: {

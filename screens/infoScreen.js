@@ -90,30 +90,20 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
                   }}
                   markerStyle={{
                     height: 20,
-                    width: 20
+                    width: 20,
+                    borderColor: '#1294EF',
+                    borderWidth: 1.32
                   }}
               />
-            </View>
-
-            <View style={{paddingTop: 10, flexDirection: "row", paddingBottom: 200}}>
-              <View style={{paddingRight: 90}}>
-                <Text style={styles.sliderLabel2}>${this.state.values[0]}</Text>
-              </View>
-              <View style={{paddingLeft: 90}}>
-                {this.state.values[1] == 100000?
-                <Text style={styles.sliderLabel3}>ANY</Text>:<Text style={styles.sliderLabel3}>${this.state.values[1]}</Text>}
-              </View>
-              
-              
             </View>
 
           </View>
           
           <View style={styles.navContainer}>
-            <View style={styles.circle} /><Text> </Text>
-            <View style={styles.activeNav} /><Text> </Text>
-            <View style={styles.circle} /><Text> </Text>
-            <View style={styles.circle} />
+            <View style={styles.navCircles}><View style={styles.circle}/></View>
+            <View style={styles.navCircles}><View style={styles.activeNav}/></View>
+            <View style={styles.navCircles}><View style={styles.circle}/></View>
+            <View style={styles.navCircles}><View style={styles.circle}/></View>
           </View>
 
           <View style={styles.buttonContainer}>
@@ -153,6 +143,7 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
 
     container: {
       flex: 1,
+      alignItems: "center",
       backgroundColor: '#FFFFFF'
     },
 
@@ -165,11 +156,15 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
       backgroundColor: '#FFFFFF',
       alignItems: 'center',
       justifyContent: 'center',
-      paddingHorizontal: 10
+      paddingHorizontal: 10,
+      paddingTop: 90
     },
 
     btext: {
-      color: '#FFFFFF'
+      color: '#FFFFFF',
+      fontSize: 16,
+      fontWeight: 'bold',
+      lineHeight: 19
     },
 
     buttonContainer: {
@@ -187,68 +182,16 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
       justifyContent: 'center',
       backgroundColor: '#1294EF',
       borderRadius: 4,
-      width: 100,
-      height: 50,
-      borderColor: '#1653bc',
-      borderWidth: 1,
+      width: 94,
+      height: 43,
       position: "absolute",
-      right: 40,
-      bottom: 50
-    },
-
-    inputContainer: {
-      alignItems: 'center',
-      paddingBottom: 30,
-      paddingTop: 30
-    },
-
-    inputS: {
-      paddingBottom: 15,
-      paddingTop: 15,
-      paddingLeft: 5,
-      paddingRight: 5,
-      borderColor: '#246ee5',
-      borderWidth: 1,
-      width: 175,
-      fontSize: 16
-    },
-
-    inputBox: {
-      paddingTop: 5,
-      paddingBottom: 5
-    },
-
-    dropDownView: {
-      paddingBottom: 15,
-      paddingTop: 15,
-      borderWidth: 1,
-      borderColor: '#246ee5',
-      width: 175
-    },
-
-    dropDownText: {
-      paddingLeft: 5,
-      fontSize: 16
-    },
-    
-    dropDownList: {
-      width: 175
-    },
-
-    optionText: {
-      fontSize: 14,
-      paddingLeft: 15
-    },
-
-    selectedOption: {
-      fontWeight: 'bold',
-      backgroundColor: '#adb2ba'
+      left: 70,
+      bottom: 30
     },
 
     sliderView: {
       paddingTop: 50,
       justifyContent: "center"
-      
     },
 
     sliderLabelView: {
@@ -258,19 +201,21 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
     sliderLabelView2: {
       alignItems: "center",
       paddingBottom: 20,
-      paddingLeft: 20,
-      paddingRight: 20
+      paddingHorizontal: 20
     },
 
     sliderLabel1: {
-      fontSize: 16,
+      fontSize: 14,
       textAlign: "center",
-      paddingHorizontal: 10
+      paddingHorizontal: 10,
+      lineHeight: 30
     },
 
     infoText: {
-      fontSize: 20,
-      fontWeight: 'bold'
+      fontSize: 24,
+      fontWeight: '300',
+      lineHeight: 28,
+      textAlign: 'center'
     },
 
     navBar: {
@@ -280,29 +225,31 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
     },
 
     circle: {
-      width: 10,
-      height: 10,
+      width: 13,
+      height: 13,
       borderRadius: 50,
-      borderColor: '#000000',
+      borderColor: '#D8D8D8',
       borderWidth: 1
     },
 
     activeNav: {
-      width: 10,
-      height: 10,
+      width: 13,
+      height: 13,
       borderRadius: 50,
-      borderColor: '#000000',
+      borderColor: '#D8D8D8',
       borderWidth: 1,
       backgroundColor: '#1294EF'
     },
 
     navContainer: {
-      flex: 1,
       flexDirection: 'row',
       justifyContent: 'center',
-      position: "absolute",
-      bottom: 220,
-      right: 160,
+      paddingBottom: 88,
+      paddingTop: 146
     },
+
+    navCircles: {
+      paddingHorizontal: 4
+    }
 
   });
