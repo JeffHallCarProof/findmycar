@@ -52,64 +52,7 @@ import Loader from '../components/loader';
       loading: false
     }
     
-   async getHelloW(){
-      //     https://productlab.carfax.ca/findmycar/multi/carcrash/60000/20000/12121212/6
-      /*                    
-                    "Budget",
-                    "Build Quality Rating",
-                    "Comfort Rating",
-                    "Exterior Design Rating",
-                    "Fuel Economy Rating",
-                    "Fun To Drive Rating",
-                    "Interior Design Rating ",
-                    "Make",
-                    "Model",
-                    "Performance Rating",
-                    "Reliability Rating",
-                    "Score"
-      */
-      const url = "https://productlab.carfax.ca/findmycar/multi/carcrash/60000/20000/12121212/6";
-      
-      
-      try{
-      const res = await fetch(url,console.log(url),{
-        method:'GET',
-        headers:{
-                'Accept':'application/json',
-                'Content-Type':'application/json',
-            },
-            body: JSON.stringify({
-              "type": "select",
-              "args": {
-                "table": "author",
-                "columns": [
-                  "Budget",
-                  "Build Quality Rating",
-                  "Comfort Rating",
-                  "Exterior Design Rating",
-                  "Fuel Economy Rating",
-                  "Fun To Drive Rating",
-                  "Interior Design Rating ",
-                  "Make",
-                  "Model",
-                  "Performance Rating",
-                  "Reliability Rating",
-                  "Score"
 
-                ]
-            }
-            }),
-        })
-        const rJson = await res.json();
-        const ETC1 = await this.setState({responseJson: rJson});
-        const ETC2 = await this.setState({loading: false});
-        this.props.navigation.navigate("Results", {nArray: numArray, rJson: this.state.responseJson})
-        console.log(this.state.responseJson)
-      }catch(err){
-        return console.error(err);
-      }
-
-    };
     render() {
 
       const { navigation } = this.props;
@@ -117,7 +60,7 @@ import Loader from '../components/loader';
       max = navigation.getParam('max');
       const eventId = navigation.getParam('eId', 'Invalid');
       const classId = navigation.getParam('cId', 'Invalid');
-      numArray = [this.state.bs1,this.state.bs2,this.state.bs3,this.state.bs4,this.state.bs5,this.state.bs6,this.state.bs7,this.state.bs8];
+      numArray = this.state.bs1.toString()+this.state.bs2.toString()+this.state.bs3.toString()+this.state.bs4.toString()+this.state.bs5.toString()+this.state.bs6.toString()+this.state.bs7.toString()+this.state.bs8.toString();
 
       return (
 
@@ -323,7 +266,7 @@ import Loader from '../components/loader';
             <TouchableHighlight
               underlayColor={'#0018A8'}
               style={styles.buttonConfirm}
-              onPress={_.debounce(() => {this._onPress(eventId, classId)},400)}
+              onPress={_.debounce(() => {this._onPress(eventId,classId,min,max,numArray)},400)}
             >
               <Text style={styles.btext}>FIND MY CAR</Text>
             </TouchableHighlight>
@@ -343,12 +286,11 @@ import Loader from '../components/loader';
     } //End of render
    
     // set up functions as below but add debounce
-    _onPress =_.throttle((eventId, classId) =>{ 
+    _onPress =_.throttle((eventId,classId,min,max,numArray) =>{ 
       this.setState({loading: true});
 
         console.log("Event: " + eventId + "\nClass: " + classId + '\nMin: '+ min + '\nMax: '+ max + "\nPreferences: " + numArray);
-        console.log(numArray)
-        this.getHelloW();
+        this.getHelloW(eventId,classId,min,max,numArray);
         console.log(this.state.loading)
         
       
@@ -357,6 +299,67 @@ import Loader from '../components/loader';
     _goBack =_.throttle(() =>{ 
       this.props.navigation.navigate("Class")
     },1000,{leading:true, trailing:false});
+
+
+//get api data
+    async getHelloW(eventId,classId,min,max,numArray){
+      //     https://productlab.carfax.ca/findmycar/multi/carcrash/60000/20000/12121212/6
+      /*                    
+                    "Budget",
+                    "Build Quality Rating",
+                    "Comfort Rating",
+                    "Exterior Design Rating",
+                    "Fuel Economy Rating",
+                    "Fun To Drive Rating",
+                    "Interior Design Rating ",
+                    "Make",
+                    "Model",
+                    "Performance Rating",
+                    "Reliability Rating",
+                    "Score"
+      */
+      const url = "https://productlab.carfax.ca/findmycar/multi/"+eventId+"/"+max+"/"+min+"/"+numArray+"/"+classId;
+      
+      
+      try{
+      const res = await fetch(url,console.log(url),{
+        method:'GET',
+        headers:{
+                'Accept':'application/json',
+                'Content-Type':'application/json',
+            },
+            body: JSON.stringify({
+              "type": "select",
+              "args": {
+                "table": "author",
+                "columns": [
+                  "Budget",
+                  "BuildQualityRating",
+                  "ComfortRating",
+                  "ExteriorDesignRating",
+                  "FuelEconomyRating",
+                  "FunToDriveRating",
+                  "InteriorDesignRating ",
+                  "Make",
+                  "Model",
+                  "PerformanceRating",
+                  "ReliabilityRating",
+                  "Score"
+
+                ]
+            }
+            }),
+        })
+        const rJson = await res.json();
+        const ETC1 = await this.setState({responseJson: rJson});
+        const ETC2 = await this.setState({loading: false});
+        this.props.navigation.navigate("Results", {nArray: numArray, rJson: this.state.responseJson})
+        console.log(this.state.responseJson)
+      }catch(err){
+        return console.error(err);
+      }
+
+    };
 
   } //End of class
 
