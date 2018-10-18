@@ -66,10 +66,14 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
               <Text style={styles.sliderLabel1}>Fo shizzle at fo shizzle mah nizzle fo rizzle, mah home g-dizzle dapibizzle turpis tempus i'm in the shizzle. Maurizzle pellentesque get down get down et turpizzle.</Text>
             </View>
 
+            <View style={{height: 43, width: 161, borderColor: '#C7C7C7', borderWidth: 1, borderRadius: 4, justifyContent: 'center'}}>
+              <Text style={{fontSize: 18, fontWeight: '300', lineHeight: 21, textAlign: 'center'}}>${min} - ${max}</Text>
+            </View>
+
             <View style={styles.sliderView}>
               <MultiSlider
                   values={[this.state.values[0], this.state.values[1]]}
-                  sliderLength={250}
+                  sliderLength={255}
                   touchDimensions={{
                     height: 100,
                     width: 100,
@@ -95,6 +99,11 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
                     borderWidth: 1.32
                   }}
               />
+            </View>
+
+            <View style={{flexDirection: "row", width: 265, justifyContent: "space-between"}}>
+              <Text style={styles.sliderLabels}>$0</Text>
+              <Text style={styles.sliderLabels}>ANY</Text>
             </View>
 
           </View>
@@ -195,7 +204,8 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
     },
 
     sliderLabelView: {
-      paddingTop: 10
+      paddingTop: 10,
+      paddingBottom: 65
     },
 
     sliderLabelView2: {
@@ -216,6 +226,11 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
       fontWeight: '300',
       lineHeight: 28,
       textAlign: 'center'
+    },
+
+    sliderLabels: {
+      fontSize: 16,
+      lineHeight: 19
     },
 
     navBar: {

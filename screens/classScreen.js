@@ -24,7 +24,7 @@ export default class classScreen extends React.Component {
     };
 
     state = {
-      c1: false,
+      c1: true,
       c2: false,
       c3: false,
       c4: false,
@@ -58,64 +58,68 @@ export default class classScreen extends React.Component {
           </NavBar>
 
           <View style={{alignItems: 'center', justifyContent: 'center', paddingBottom: 30}}>
-            <Text style={{ paddingTop: 60, paddingHorizontal: 50, fontWeight: 'bold', fontSize: 20}}>
+            <Text style={{ paddingTop: 35, paddingHorizontal: 50, fontWeight: '300', fontSize: 24, lineHeight: 28, textAlign: "center"}}>
               Preferred body type
             </Text>
-            <Text style={{ paddingHorizontal: 30, paddingTop: 20, textAlign: "center"}}>
+            <Text style={{ paddingHorizontal: 30, paddingTop: 18, fontSize: 14, lineHeight: 30, textAlign: "center"}}>
               Fo shizzle at fo shizzle mah nizzle fo rizzle, mah home g-dizzle dapibizzle turpis tempus i'm in the shizzle.
             </Text>
           </View>
 
           <View style={styles.bcontainer}>
             <TouchableHighlight
-              underlayColor={'#0018A8'}
-              style={[styles.button, this.state.c1 && styles.buttonT]}
-              onPress={() => this.setState({c1: true, c2: false, c3: false, c4: false, c5: false, c6: false})}
-            >
-              <Text style={styles.btext}> Class1 </Text>
-            </TouchableHighlight><Text> </Text>
+                underlayColor={'#FFFFFF'}
+                style={styles.button}
+                onPress={() => this.setState({c1: true, c2: false, c3: false, c4: false, c5: false, c6: false})}
+              >
+                <Text style={[styles.btext, this.state.c1 && styles.btext2]}> Class1 </Text>
+              </TouchableHighlight>
 
-            <TouchableHighlight
-              underlayColor={'#0018A8'}
-              style={[styles.button, this.state.c2 && styles.buttonT]}
-              onPress={() => this.setState({c1: false, c2: true, c3: false, c4: false, c5: false, c6: false})}
-            >
-              <Text style={styles.btext}> Class2 </Text>
-            </TouchableHighlight><Text> </Text>
+              <View style={{paddingHorizontal: 15}}>
+                <TouchableHighlight
+                  underlayColor={'#FFFFFF'}
+                  style={styles.button}
+                  onPress={() => this.setState({c1: false, c2: true, c3: false, c4: false, c5: false, c6: false})}
+                >
+                  <Text style={[styles.btext, this.state.c2 && styles.btext2]}> Class2 </Text>
+                </TouchableHighlight>
+              </View>
+              
+              <TouchableHighlight
+                underlayColor={'#FFFFFF'}
+                style={styles.button}
+                onPress={() => this.setState({c1: false, c2: false, c3: true, c4: false, c5: false, c6: false})}
+              >
+                <Text style={[styles.btext, this.state.c3 && styles.btext2]}> Class3 </Text>
+              </TouchableHighlight>
+            </View>
 
-            <TouchableHighlight
-              underlayColor={'#0018A8'}
-              style={[styles.button, this.state.c3 && styles.buttonT]}
-              onPress={() => this.setState({c1: false, c2: false, c3: true, c4: false, c5: false, c6: false})}
-            >
-              <Text style={styles.btext}> Class3 </Text>
-            </TouchableHighlight>
-          </View>
+            <View style={styles.bcontainer2}>
+              <TouchableHighlight
+                underlayColor={'#FFFFFF'}
+                style={styles.button}
+                onPress={() => this.setState({c1: false, c2: false, c3: false, c4: true, c5: false, c6: false})}
+              >
+                <Text style={[styles.btext, this.state.c4 && styles.btext2]}> Class4 </Text>
+              </TouchableHighlight>
 
-          <View style={styles.bcontainer2}>
-            <TouchableHighlight
-              underlayColor={'#0018A8'}
-              style={[styles.button, this.state.c4 && styles.buttonT]}
-              onPress={() => this.setState({c1: false, c2: false, c3: false, c4: true, c5: false, c6: false})}
-            >
-              <Text style={styles.btext}> Class4 </Text>
-            </TouchableHighlight><Text> </Text>
+              <View style={{paddingHorizontal: 15}}>
+                <TouchableHighlight
+                  underlayColor={'#FFFFFF'}
+                  style={styles.button}
+                  onPress={() => this.setState({c1: false, c2: false, c3: false, c4: false, c5: true, c6: false})}
+                >
+                  <Text style={[styles.btext, this.state.c5 && styles.btext2]}> Class5 </Text>
+                </TouchableHighlight>
+              </View>
 
-            <TouchableHighlight
-              underlayColor={'#0018A8'}
-              style={[styles.button, this.state.c5 && styles.buttonT]}
-              onPress={() => this.setState({c1: false, c2: false, c3: false, c4: false, c5: true, c6: false})}
-            >
-              <Text style={styles.btext}> Class5 </Text>
-            </TouchableHighlight><Text> </Text>
-
-            <TouchableHighlight
-              underlayColor={'#0018A8'}
-              style={[styles.button, this.state.c6 && styles.buttonT]}
-              onPress={() => this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: true})}
-            >
-              <Text style={styles.btext}> Other </Text>
-            </TouchableHighlight>
+              <TouchableHighlight
+                underlayColor={'#FFFFFF'}
+                style={styles.button}
+                onPress={() => this.setState({c1: false, c2: false, c3: false, c4: false, c5: false, c6: true})}
+              >
+                <Text style={[styles.btext, this.state.c6 && styles.btext2]}> Other </Text>
+              </TouchableHighlight>
           </View>
 
           <View style={styles.navContainer}>
@@ -131,7 +135,7 @@ export default class classScreen extends React.Component {
               style={styles.button2}
               onPress={_.debounce(() => {this._onPress(eventId, minB, maxB)},400)}
             >
-              <Text style={styles.btext}> NEXT </Text>
+              <Text style={styles.btext3}> NEXT </Text>
             </TouchableHighlight>
           </View>
 
@@ -156,7 +160,7 @@ export default class classScreen extends React.Component {
         classId = 6
       }
       
-      this.props.navigation.navigate("Preferences", {disabled:false, cId: classId, eId: eventId, min: minB, max: maxB})
+      this.props.navigation.navigate("Preferences", {cId: classId, eId: eventId, min: minB, max: maxB})
     },1000,{leading:true, trailing:false});
 
     _goBack =_.throttle(() =>{ 
@@ -178,7 +182,8 @@ export default class classScreen extends React.Component {
       backgroundColor: '#FFFFFF',
       alignItems: 'center',
       justifyContent: 'center',
-      paddingVertical: 2,
+      paddingHorizontal: 20,
+      paddingVertical: 15,
       flexDirection: 'row',
       paddingTop: 20
     },
@@ -193,21 +198,31 @@ export default class classScreen extends React.Component {
     },
 
     btext: {
-      color: '#FFFFFF',
+      color: '#989898',
       alignItems: 'center',
       justifyContent: 'center',
+    },
+
+    btext2: {
+      color: '#1294EF',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+
+    btext3: {
+      color: "#FFFFFF",
+      fontSize: 16,
+      fontWeight: 'bold',
+      lineHeight: 19
     },
 
     button: {
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundColor: '#1294EF',
-      padding: 20,
-      paddingHorizontal: 10,
-      borderRadius: 4,
+      backgroundColor: '#FFFFFF',
       width: 100,
       height: 100,
-      borderColor: '#1653bc',
+      borderColor: '#D8D8D8',
       borderWidth: 1,
     },
 
@@ -234,8 +249,8 @@ export default class classScreen extends React.Component {
       borderColor: '#1653bc',
       borderWidth: 1,
       position: "absolute",
-      left: 50,
-      bottom: 20
+      left: 70,
+      bottom: 30
     },
     
     button2container: {
@@ -268,7 +283,8 @@ export default class classScreen extends React.Component {
     navContainer: {
       flex: 1,
       flexDirection: 'row',
-      justifyContent: 'center'
+      justifyContent: 'center',
+      paddingTop: 10
     },
 
     navCircles: {
