@@ -75,8 +75,6 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
                   values={[this.state.values[0], this.state.values[1]]}
                   sliderLength={255}
                   touchDimensions={{
-                    height: 100,
-                    width: 100,
                     borderRadius: 20,
                     slipDisplacement: 100
                   }}
@@ -93,8 +91,8 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
                     backgroundColor: '#1294EF'
                   }}
                   markerStyle={{
-                    height: 20,
-                    width: 20,
+                    height: 40,
+                    width: 40,
                     borderColor: '#1294EF',
                     borderWidth: 1.32
                   }}
@@ -195,7 +193,9 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
       height: 43,
       position: "absolute",
       left: 70,
-      bottom: 30
+      bottom: 30,
+      borderColor: '#1653bc',
+      borderWidth: 1,
     },
 
     sliderView: {
@@ -259,8 +259,8 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
     navContainer: {
       flexDirection: 'row',
       justifyContent: 'center',
-      paddingBottom: 88,
-      paddingTop: 146
+      paddingBottom: 10,
+      paddingTop: 10
     },
 
     navCircles: {

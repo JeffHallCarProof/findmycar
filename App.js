@@ -17,10 +17,12 @@ import pScreen from './screens/pScreen';
 import infoScreen from './screens/infoScreen';
 import resultsScreen from './screens/resultsScreen';
 import classScreen from './screens/classScreen';
+import testScreen from './screens/testScreen';
 
 const RootStack = createStackNavigator(
   {
     Welcome: welcomeScreen,
+    Test: testScreen,
     Events: eventScreen,
     Class: classScreen,
     Info: infoScreen,

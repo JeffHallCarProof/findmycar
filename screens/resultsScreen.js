@@ -168,46 +168,44 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
                   <Image source={require('../assets/sampleCar.png')}/>
                   <View style={styles.carTitleContainer}>
                   <Text style={styles.carTitle}>{this.state.responseJson[0].Make +" "+ this.state.responseJson[0].Model}</Text>
+                  <Text style={styles.carPrice}>${this.state.responseJson[0].Budget}</Text>
                 </View>
                 </View>
               </View>
               
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Comfort </Text>
-                <ProgressBar progress={(this.state.responseJson[0].Comfort_Rating)} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}  borderRadius={10}/>
+                <ProgressBar progress={(this.state.responseJson[0].Comfort_Rating)} unfilledColor={'#ECECEC'} color={'#1294EF'}borderColor={'#000000'} height={12} width={200}  borderRadius={10}/>
               </View>
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Fuel Economy </Text>
-                <ProgressBar progress={(this.state.responseJson[0].Fuel_Economy_Rating)} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
+                <ProgressBar progress={(this.state.responseJson[0].Fuel_Economy_Rating)} unfilledColor={'#ECECEC'} color={'#1294EF'}borderColor={'#000000'} height={12} width={200}   borderRadius={10}/>
               </View>
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Build Quality </Text>
-                <ProgressBar progress={(this.state.responseJson[0].Build_Quality_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
+                <ProgressBar progress={(this.state.responseJson[0].Build_Quality_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'}borderColor={'#000000'} height={12} width={200}   borderRadius={10}/>
               </View>
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Reliability </Text>
-                <ProgressBar progress={(this.state.responseJson[0].Reliability_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
+                <ProgressBar progress={(this.state.responseJson[0].Reliability_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'}borderColor={'#000000'} height={12} width={200}   borderRadius={10}/>
               </View>
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Fun </Text>
-                <ProgressBar progress={(this.state.responseJson[0].Fun_To_Drive_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
+                <ProgressBar progress={(this.state.responseJson[0].Fun_To_Drive_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'}borderColor={'#000000'} height={12} width={200}   borderRadius={10}/>
               </View>
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Performance </Text>
-                <ProgressBar progress={(this.state.responseJson[0].Performance_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
+                <ProgressBar progress={(this.state.responseJson[0].Performance_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'}borderColor={'#000000'} height={12} width={200}   borderRadius={10}/>
               </View> 
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Interior Style </Text>
-                <ProgressBar progress={(this.state.responseJson[0].Interior_Design_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
+                <ProgressBar progress={(this.state.responseJson[0].Interior_Design_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'}borderColor={'#000000'} height={12} width={200}   borderRadius={10}/>
               </View>
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Exterior Style </Text>
-                <ProgressBar progress={(this.state.responseJson[0].Exterior_Design_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF#1294EF'} height={12} width={200}   borderRadius={10}/>
+                <ProgressBar progress={(this.state.responseJson[0].Exterior_Design_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'}borderColor={'#000000'} height={12} width={200}   borderRadius={10}/>
               </View>
-              <View style={styles.rowContainer}>
-                <Text style={styles.colText}> Overall </Text>
-                <ProgressBar progress={(this.state.responseJson[0].Score/12)} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
-              </View>
+
             </View>
             <View style={styles.colContainer}>
               <View style={styles.topContainer}>
@@ -216,46 +214,44 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
                   <Image source={require('../assets/sampleCar2.png')}/>
                   <View style={styles.carTitleContainer}>
                   <Text style={styles.carTitle}>{this.state.responseJson[1].Make +" "+ this.state.responseJson[1].Model}</Text>
+                  <Text style={styles.carPrice}>${this.state.responseJson[1].Budget}</Text>
                 </View>
                 </View>
               </View>
               
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Comfort </Text>
-                <ProgressBar progress={(this.state.responseJson[1].Comfort_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
+                <ProgressBar progress={(this.state.responseJson[1].Comfort_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'}borderColor={'#000000'} height={12} width={200}   borderRadius={10}/>
               </View>
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Fuel Economy </Text>
-                <ProgressBar progress={(this.state.responseJson[1].Fuel_Economy_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
+                <ProgressBar progress={(this.state.responseJson[1].Fuel_Economy_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'}borderColor={'#000000'} height={12} width={200}   borderRadius={10}/>
               </View>
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Build Quality </Text>
-                <ProgressBar progress={(this.state.responseJson[1].Build_Quality_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
+                <ProgressBar progress={(this.state.responseJson[1].Build_Quality_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'}borderColor={'#000000'} height={12} width={200}   borderRadius={10}/>
               </View>
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Reliability </Text>
-                <ProgressBar progress={(this.state.responseJson[1].Reliability_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
+                <ProgressBar progress={(this.state.responseJson[1].Reliability_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'}borderColor={'#000000'} height={12} width={200}   borderRadius={10}/>
               </View>
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Fun </Text>
-                <ProgressBar progress={(this.state.responseJson[1].Fun_To_Drive_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
+                <ProgressBar progress={(this.state.responseJson[1].Fun_To_Drive_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'}borderColor={'#000000'} height={12} width={200}   borderRadius={10}/>
               </View>
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Performance </Text>
-                <ProgressBar progress={(this.state.responseJson[1].Performance_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
+                <ProgressBar progress={(this.state.responseJson[1].Performance_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'}borderColor={'#000000'} height={12} width={200}   borderRadius={10}/>
               </View>
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Interior Style </Text>
-                <ProgressBar progress={(this.state.responseJson[1].Interior_Design_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
+                <ProgressBar progress={(this.state.responseJson[1].Interior_Design_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'}borderColor={'#000000'} height={12} width={200}   borderRadius={10}/>
               </View>
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Exterior Style </Text>
-                <ProgressBar progress={(this.state.responseJson[1].Exterior_Design_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
+                <ProgressBar progress={(this.state.responseJson[1].Exterior_Design_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'}borderColor={'#000000'} height={12} width={200}   borderRadius={10}/>
               </View>
-              <View style={styles.rowContainer}>
-                <Text style={styles.colText}> Overall </Text>
-                <ProgressBar progress={(this.state.responseJson[1].Score/12)} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
-              </View>
+
 
 
             </View> <View style={styles.colContainer}>
@@ -265,46 +261,44 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
                   <Image source={require('../assets/sampleCar3.png')}/>
                   <View style={styles.carTitleContainer}>
                   <Text style={styles.carTitle}>{this.state.responseJson[2].Make +" "+ this.state.responseJson[2].Model}</Text>
+                  <Text style={styles.carPrice}>${this.state.responseJson[2].Budget}</Text>
                 </View>
                 </View>
               </View>
               
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Comfort </Text>
-                <ProgressBar progress={(this.state.responseJson[2].Comfort_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
+                <ProgressBar progress={(this.state.responseJson[2].Comfort_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'}borderColor={'#000000'} height={12} width={200}   borderRadius={10}/>
               </View>
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Fuel Economy </Text>
-                <ProgressBar progress={(this.state.responseJson[2].Fuel_Economy_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
+                <ProgressBar progress={(this.state.responseJson[2].Fuel_Economy_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'}borderColor={'#000000'} height={12} width={200}   borderRadius={10}/>
               </View>
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Build Quality </Text>
-                <ProgressBar progress={(this.state.responseJson[2].Build_Quality_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
+                <ProgressBar progress={(this.state.responseJson[2].Build_Quality_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'}borderColor={'#000000'} height={12} width={200}   borderRadius={10}/>
               </View>
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Reliability </Text>
-                <ProgressBar progress={(this.state.responseJson[2].Reliability_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
+                <ProgressBar progress={(this.state.responseJson[2].Reliability_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'}borderColor={'#000000'} height={12} width={200}   borderRadius={10}/>
               </View>
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Fun </Text>
-                <ProgressBar progress={(this.state.responseJson[2].Fun_To_Drive_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
+                <ProgressBar progress={(this.state.responseJson[2].Fun_To_Drive_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'}borderColor={'#000000'} height={12} width={200}   borderRadius={10}/>
               </View>
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Performance </Text>
-                <ProgressBar progress={(this.state.responseJson[2].Performance_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
+                <ProgressBar progress={(this.state.responseJson[2].Performance_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'}borderColor={'#000000'} height={12} width={200}   borderRadius={10}/>
               </View>
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Interior Style </Text>
-                <ProgressBar progress={(this.state.responseJson[2].Interior_Design_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
+                <ProgressBar progress={(this.state.responseJson[2].Interior_Design_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'}borderColor={'#000000'} height={12} width={200}   borderRadius={10}/>
               </View>
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Exterior Style </Text>
-                <ProgressBar progress={(this.state.responseJson[2].Exterior_Design_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
+                <ProgressBar progress={(this.state.responseJson[2].Exterior_Design_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'}borderColor={'#000000'} height={12} width={200}   borderRadius={10}/>
               </View>
-              <View style={styles.rowContainer}>
-                <Text style={styles.colText}> Overall </Text>
-                <ProgressBar progress={(this.state.responseJson[2].Score/12)} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
-              </View>
+
             </View>
             <View style={styles.colContainer}>
               <View style={styles.topContainer}>
@@ -313,46 +307,44 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
                   <Image source={require('../assets/sampleCar.png')}/>
                   <View style={styles.carTitleContainer}>
                   <Text style={styles.carTitle}>{this.state.responseJson[3].Make +" "+ this.state.responseJson[3].Model}</Text>
+                  <Text style={styles.carPrice}>${this.state.responseJson[3].Budget}</Text>
                 </View>
                 </View>
               </View>
               
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Comfort </Text>
-                <ProgressBar progress={(this.state.responseJson[3].Comfort_Rating)} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
+                <ProgressBar progress={(this.state.responseJson[3].Comfort_Rating)} unfilledColor={'#ECECEC'} color={'#1294EF'}borderColor={'#000000'} height={12} width={200}   borderRadius={10}/>
               </View>
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Fuel Economy </Text>
-                <ProgressBar progress={(this.state.responseJson[3].Fuel_Economy_Rating)} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
+                <ProgressBar progress={(this.state.responseJson[3].Fuel_Economy_Rating)} unfilledColor={'#ECECEC'} color={'#1294EF'}borderColor={'#000000'} height={12} width={200}   borderRadius={10}/>
               </View>
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Build Quality </Text>
-                <ProgressBar progress={(this.state.responseJson[3].Build_Quality_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
+                <ProgressBar progress={(this.state.responseJson[3].Build_Quality_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'}borderColor={'#000000'} height={12} width={200}   borderRadius={10}/>
               </View>
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Reliability </Text>
-                <ProgressBar progress={(this.state.responseJson[3].Reliability_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
+                <ProgressBar progress={(this.state.responseJson[3].Reliability_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'}borderColor={'#000000'} height={12} width={200}   borderRadius={10}/>
               </View>
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Fun </Text>
-                <ProgressBar progress={(this.state.responseJson[3].Fun_To_Drive_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
+                <ProgressBar progress={(this.state.responseJson[3].Fun_To_Drive_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'}borderColor={'#000000'} height={12} width={200}   borderRadius={10}/>
               </View>
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Performance </Text>
-                <ProgressBar progress={(this.state.responseJson[3].Performance_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
+                <ProgressBar progress={(this.state.responseJson[3].Performance_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'}borderColor={'#000000'} height={12} width={200}   borderRadius={10}/>
               </View> 
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Interior Style </Text>
-                <ProgressBar progress={(this.state.responseJson[3].Interior_Design_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
+                <ProgressBar progress={(this.state.responseJson[3].Interior_Design_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'}borderColor={'#000000'} height={12} width={200}   borderRadius={10}/>
               </View>
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Exterior Style </Text>
-                <ProgressBar progress={(this.state.responseJson[3].Exterior_Design_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
+                <ProgressBar progress={(this.state.responseJson[3].Exterior_Design_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'}borderColor={'#000000'} height={12} width={200}   borderRadius={10}/>
               </View>
-              <View style={styles.rowContainer}>
-                <Text style={styles.colText}> Overall </Text>
-                <ProgressBar progress={(this.state.responseJson[3].Score/12)} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
-              </View>
+
             </View>
             <View style={styles.colContainer}>
               <View style={styles.topContainer}>
@@ -361,46 +353,44 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
                   <Image source={require('../assets/sampleCar.png')}/>
                   <View style={styles.carTitleContainer}>
                   <Text style={styles.carTitle}>{this.state.responseJson[4].Make +" "+ this.state.responseJson[4].Model}</Text>
+                  <Text style={styles.carPrice}>${this.state.responseJson[4].Budget}</Text>
                 </View>
                 </View>
               </View>
               
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Comfort </Text>
-                <ProgressBar progress={(this.state.responseJson[4].Comfort_Rating)} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
+                <ProgressBar progress={(this.state.responseJson[4].Comfort_Rating)} unfilledColor={'#ECECEC'} color={'#1294EF'}borderColor={'#000000'} height={12} width={200}   borderRadius={10}/>
               </View>
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Fuel Economy </Text>
-                <ProgressBar progress={(this.state.responseJson[4].Fuel_Economy_Rating)} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
+                <ProgressBar progress={(this.state.responseJson[4].Fuel_Economy_Rating)} unfilledColor={'#ECECEC'} color={'#1294EF'}borderColor={'#000000'} height={12} width={200}   borderRadius={10}/>
               </View>
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Build Quality </Text>
-                <ProgressBar progress={(this.state.responseJson[4].Build_Quality_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
+                <ProgressBar progress={(this.state.responseJson[4].Build_Quality_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'}borderColor={'#000000'} height={12} width={200}   borderRadius={10}/>
               </View>
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Reliability </Text>
-                <ProgressBar progress={(this.state.responseJson[4].Reliability_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
+                <ProgressBar progress={(this.state.responseJson[4].Reliability_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'}borderColor={'#000000'} height={12} width={200}   borderRadius={10}/>
               </View>
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Fun </Text>
-                <ProgressBar progress={(this.state.responseJson[4].Fun_To_Drive_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
+                <ProgressBar progress={(this.state.responseJson[4].Fun_To_Drive_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'}borderColor={'#000000'} height={12} width={200}   borderRadius={10}/>
               </View>
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Performance </Text>
-                <ProgressBar progress={(this.state.responseJson[4].Performance_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
+                <ProgressBar progress={(this.state.responseJson[4].Performance_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'}borderColor={'#000000'} height={12} width={200}   borderRadius={10}/>
               </View> 
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Interior Style </Text>
-                <ProgressBar progress={(this.state.responseJson[4].Interior_Design_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
+                <ProgressBar progress={(this.state.responseJson[4].Interior_Design_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'}borderColor={'#000000'} height={12} width={200}   borderRadius={10}/>
               </View>
               <View style={styles.rowContainer}>
                 <Text style={styles.colText}> Exterior Style </Text>
-                <ProgressBar progress={(this.state.responseJson[4].Exterior_Design_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
+                <ProgressBar progress={(this.state.responseJson[4].Exterior_Design_Rating )} unfilledColor={'#ECECEC'} color={'#1294EF'}borderColor={'#000000'} height={12} width={200}   borderRadius={10}/>
               </View>
-              <View style={styles.rowContainer}>
-                <Text style={styles.colText}> Overall </Text>
-                <ProgressBar progress={(this.state.responseJson[4].Score/12)} unfilledColor={'#ECECEC'} color={'#1294EF'} height={12} width={200}   borderRadius={10}/>
-              </View>
+
             </View>
 
           </ScrollView>
@@ -515,7 +505,7 @@ const styles = StyleSheet.create({
 
     images: {
       width: 310,
-      height: 205,
+      height: 225,
       borderWidth: 2,
       borderColor: '#CFCFD1',
       backgroundColor: '#FFFFFF',
@@ -527,11 +517,20 @@ const styles = StyleSheet.create({
       fontSize: 18,
       color: '#000000',
       textAlign: 'center',
-      paddingBottom: 5,
+      paddingBottom: 1,
+    },
+    carTitle: {
+      fontSize: 14,
+      color: '#000000',
+      textAlign: 'center',
+      paddingBottom: 1,
+      alignItems: 'center',
+      justifyContent: 'center',
     },
 
     carTitleContainer: {
-      paddingBottom: 0,
+      alignItems: 'center',
+      justifyContent: 'center',
     },
 
     topContainer: {

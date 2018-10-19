@@ -303,22 +303,9 @@ import Loader from '../components/loader';
 
 //get api data
     async getHelloW(eventId,classId,min,max,numArray){
-      //     https://productlab.carfax.ca/findmycar/multi/carcrash/60000/20000/12121212/6
-      /*                    
-                    "Budget",
-                    "Build Quality Rating",
-                    "Comfort Rating",
-                    "Exterior Design Rating",
-                    "Fuel Economy Rating",
-                    "Fun To Drive Rating",
-                    "Interior Design Rating ",
-                    "Make",
-                    "Model",
-                    "Performance Rating",
-                    "Reliability Rating",
-                    "Score"
-      */
-      const url = "https://productlab.carfax.ca/findmycar/multi/"+eventId+"/"+max+"/"+min+"/"+numArray+"/"+classId;
+      // sample Url    https://productlab.carfax.ca/findmycar/multi/eventid/class/MAX/MIN/PREFERENCES/cargospace
+
+      const url = "https://productlab.carfax.ca/findmycar/multi/"+eventId+"/"+classId+"/"+max+"/"+min+"/"+numArray+"/"+0;
       
       
       try{
