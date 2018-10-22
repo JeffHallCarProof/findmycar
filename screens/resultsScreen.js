@@ -6,12 +6,14 @@ import {
     StyleSheet,
     Text,
     TouchableHighlight,
+    TouchableOpacity,
     View,
   } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 import ProgressBar from 'react-native-progress/Bar';
 import _, {debounce} from 'lodash';
 import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
+import Modal from 'react-native-modal';
 
   const width = 375
 
@@ -40,8 +42,26 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
       offset: 0,
       i: 0,
       responseJson: [],
+      visibleModal: null //Modal
     }
-    /*
+
+    //////////////////////////////////////Modal start
+    _renderButton = (text, onPress) => (
+      <TouchableOpacity onPress={onPress}>
+        <View style={styles.buttonX}>
+          <Text>{text}</Text>
+        </View>
+      </TouchableOpacity>
+    );
+  
+    _renderModalContent = () => (
+      <View style={styles.modalContent}>
+        <Text>Hello!</Text>
+        {this._renderButton('Close', () => this.setState({ visibleModal: null }))}
+      </View>
+    );
+    //////////////////////////////////////Modal end
+
     //api call
     async getHelloW(){
       const url = "https://productlab.carfax.ca/findmycar/multi/carcrash/60000/20000/33333333/6";
@@ -83,7 +103,6 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
       }
 
     };
-    */
     //go back function
     _goBack =_.throttle(() =>{ 
       this.props.navigation.navigate("Preferences")
@@ -397,6 +416,20 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
 
           </ScrollView>
 
+          
+          {/* Modal start */}
+          <View style={styles.containerX}>
+          {this._renderButton('Sliding from the sides', () => this.setState({ visibleModal: 2 }))}
+            <Modal
+              isVisible={this.state.visibleModal === 2}
+              animationIn={'slideInLeft'}
+              animationOut={'slideOutRight'}
+            >
+              {this._renderModalContent()}
+            </Modal>
+          </View>
+          {/* Modal end */}
+
         </View>
 
         ); //End of return
@@ -411,6 +444,31 @@ const styles = StyleSheet.create({
       backgroundColor: '#FFFFFF',
       paddingHorizontal: 10
     },
+
+    //////////////////////////Modal start
+    containerX: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    buttonX: {
+      backgroundColor: 'lightblue',
+      padding: 12,
+      margin: 16,
+      justifyContent: 'center',
+      alignItems: 'center',
+      borderRadius: 4,
+      borderColor: 'rgba(0, 0, 0, 0.1)',
+    },
+    modalContent: {
+      backgroundColor: 'white',
+      padding: 22,
+      justifyContent: 'center',
+      alignItems: 'center',
+      borderRadius: 4,
+      borderColor: 'rgba(0, 0, 0, 0.1)',
+    },
+    ///////////////////////////Modal end
 
     bcontainer: {
       flex: 1,
