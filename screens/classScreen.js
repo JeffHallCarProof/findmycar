@@ -61,8 +61,8 @@ export default class classScreen extends React.Component {
             </View>
           </NavBar>
 
-          <View style={{alignItems: 'center', justifyContent: 'center', paddingBottom: 30}}>
-            <Text style={{ paddingTop: 35, paddingHorizontal: 50, fontWeight: '300', fontSize: 24, lineHeight: 28, textAlign: "center"}}>
+          <View style={{alignItems: 'center', justifyContent: 'center', paddingBottom: 20}}>
+            <Text style={{ paddingTop: 30, paddingHorizontal: 50, fontWeight: '300', fontSize: 24, lineHeight: 28, textAlign: "center"}}>
               Preferred body type
             </Text>
           </View>
@@ -276,7 +276,7 @@ export default class classScreen extends React.Component {
       paddingHorizontal: 2,
       paddingVertical: 2,
       flexDirection: 'row',
-      paddingBottom: 30
+      paddingBottom: 10
     },
     btext: {
       color: '#989898',
@@ -301,8 +301,8 @@ export default class classScreen extends React.Component {
       alignItems: 'center',
       justifyContent: 'center',
       backgroundColor: '#FFFFFF',
-      width: 100,
-      height: 100,
+      width: 90,
+      height: 90,
       borderColor: '#D8D8D8',
       borderWidth: 1,
     },
@@ -321,22 +321,19 @@ export default class classScreen extends React.Component {
     },
 
     button2: {
-      alignItems: 'center',
-      justifyContent: 'center',
-      backgroundColor: '#1294EF',
-      borderRadius: 4,
-      width: 100,
-      height: 50,
-      borderColor: '#1653bc',
-      borderWidth: 1,
-      position: "absolute",
-      left: 70,
-      bottom: 30
+        alignItems: 'center',
+        backgroundColor: '#1294EF',
+        justifyContent: 'center',
+        borderRadius: 4,
+        borderColor: '#1653bc',
+        borderWidth: 1,
+        width: 340,
+        height: 60,
     },
     
     button2container: {
       alignItems: 'flex-end',
-      paddingBottom: 50
+      paddingBottom: 10
     },
 
     navBar: {

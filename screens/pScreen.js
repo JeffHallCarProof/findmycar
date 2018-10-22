@@ -84,8 +84,9 @@ import Loader from '../components/loader';
           <View style={styles.tContainer}>
             <Text>Preference Assesment</Text>          
           </View>
-          <View style={styles.bcontainer}>
-
+          <View style={styles.container}>
+          <View style={styles.container1}>
+          
             <TouchableHighlight
               underlayColor={'#0018A8'}
               style={[styles.button, this.state.p1 && styles.buttonS, this.state.p2 && styles.buttonT]}
@@ -105,9 +106,9 @@ import Loader from '../components/loader';
                 }
               }}
             >
-              <Text style={styles.btext}> Comfort </Text>
-            </TouchableHighlight><Text> </Text>
-
+              <Text style={ styles.btext}> Comfort </Text>
+            </TouchableHighlight>
+            </View><View style={styles.container2}>
             <TouchableHighlight
               underlayColor={'#0018A8'}
               style={[styles.button, this.state.p3 && styles.buttonS, this.state.p4 && styles.buttonT]}
@@ -126,11 +127,9 @@ import Loader from '../components/loader';
                 }
               }}
             >
-              <Text style={styles.btext}>Exterior  Design </Text>
+              <Text style={ styles.btext}>Exterior  Design </Text>
             </TouchableHighlight>
-          </View>
-            
-          <View style={styles.bcontainer}>
+            </View><View style={styles.container3}>
             <TouchableHighlight
               underlayColor={'#0018A8'}
               style={[styles.button, this.state.p5 && styles.buttonS, this.state.p6 && styles.buttonT]}
@@ -149,9 +148,9 @@ import Loader from '../components/loader';
                 }
               }}
             >
-              <Text style={styles.btext}>Interior  Design </Text>
-            </TouchableHighlight><Text> </Text>
-
+              <Text style={ styles.btext}>Interior  Design </Text>
+            </TouchableHighlight>
+            </View><View style={styles.container4}>
             <TouchableHighlight
               underlayColor={'#0018A8'}
               style={[styles.button, this.state.p7 && styles.buttonS, this.state.p8 && styles.buttonT]}
@@ -170,12 +169,11 @@ import Loader from '../components/loader';
                 }
               }}
             >
-              <Text style={styles.btext}> Reliability </Text>
+              <Text style={ styles.btext}> Reliability </Text>
             </TouchableHighlight>
           </View>
-            
-          <View style={styles.bcontainer}>
-            <TouchableHighlight
+          <View style={styles.container5}>
+              <TouchableHighlight
               underlayColor={'#0018A8'}
               style={[styles.button, this.state.p9 && styles.buttonS, this.state.p10 && styles.buttonT]}
               onPress={() =>{
@@ -195,7 +193,9 @@ import Loader from '../components/loader';
             >
               <Text style={styles.btext}> Fuel Eco </Text>
             </TouchableHighlight><Text> </Text>
+            </View>
 
+          <View style={styles.container6}>
             <TouchableHighlight
               underlayColor={'#0018A8'}
               style={[styles.button, this.state.p11 && styles.buttonS, this.state.p12 && styles.buttonT]}
@@ -218,7 +218,7 @@ import Loader from '../components/loader';
             </TouchableHighlight>
           </View>
 
-          <View style={styles.bcontainer}>
+          <View style={styles.container7}>
             <TouchableHighlight
               underlayColor={'#0018A8'}
               style={[styles.button, this.state.p13 && styles.buttonS, this.state.p14 && styles.buttonT]}
@@ -236,9 +236,11 @@ import Loader from '../components/loader';
                 }
               }}
             >
-              <Text style={styles.btext}> Performance </Text>
+              <Text style={ styles.btext}> Performance </Text>
             </TouchableHighlight><Text> </Text>
+            </View>
 
+            <View style={styles.container8}>
             <TouchableHighlight
               underlayColor={'#0018A8'}
               style={[styles.button, this.state.p15 && styles.buttonS, this.state.p16 && styles.buttonT]}
@@ -257,9 +259,29 @@ import Loader from '../components/loader';
                 }
               }}
             >
-              <Text style={styles.btext}> Build Quality </Text>
+              <Text style={ styles.btext}> Build Quality </Text>
             </TouchableHighlight>
           </View>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+</View>
 
           <View style={styles.buttonContainer}>
 
@@ -355,7 +377,7 @@ import Loader from '../components/loader';
 
     container: {
       flex: 1,
-      backgroundColor: '#FFFFFF'
+      backgroundColor: '#FFFFFF',
     },
 
     tContainer: {
@@ -367,26 +389,123 @@ import Loader from '../components/loader';
       paddingTop: 40
     },
 
-    bcontainer: {
-      backgroundColor: '#FFFFFF',
-      alignItems: 'center',
-      justifyContent: 'center',
-      paddingVertical: 2,
-      flexDirection: 'row'
-    },
-
-    buttonContainer: {
-      paddingBottom: 30,
-      paddingTop: 10,
+    container1: {
       backgroundColor: '#FFFFFF',
       alignItems: 'center',
       justifyContent: 'center',
       paddingVertical: 2,
       flexDirection: 'row',
       position: 'absolute',
-      left: 0,
-      right: 0,
-      bottom: 0
+      left: '20%',
+      right: '80%',
+      top: '5%',
+      bottom: '88%',
+    },
+    container2: {
+      backgroundColor: '#FFFFFF',
+      alignItems: 'center',
+      justifyContent: 'center',
+      paddingVertical: 2,
+      flexDirection: 'row',
+      position: 'absolute',
+      left: '80%',
+      right: '20%',
+      top: '5%',
+      bottom: '90%',
+    },
+    container3: {
+      backgroundColor: '#FFFFFF',
+      alignItems: 'center',
+      justifyContent: 'center',
+      paddingVertical: 2,
+      flexDirection: 'row',
+      position: 'absolute',
+      left: '52%',
+      right: '48%',
+      top: '20%',
+      bottom: '75%',
+    },
+    container4: {
+      backgroundColor: '#FFFFFF',
+      alignItems: 'center',
+      justifyContent: 'center',
+      paddingVertical: 2,
+      flexDirection: 'row',
+      position: 'absolute',
+      left: '12%',
+      right: '78%',
+      top: '34%',
+      bottom: '66%',
+    },
+    container5: {
+      backgroundColor: '#FFFFFF',
+      alignItems: 'center',
+      justifyContent: 'center',
+      paddingVertical: 2,
+      flexDirection: 'row',
+      position: 'absolute',
+      left: '80%',
+      right: '20%',
+      top: '38%',
+      bottom: '62%',
+    },
+    container6: {
+      backgroundColor: '#FFFFFF',
+      alignItems: 'center',
+      justifyContent: 'center',
+      paddingVertical: 2,
+      flexDirection: 'row',
+      position: 'absolute',
+      left: '46%',
+      right: '54%',
+      top: '50%',
+      bottom: '50%',
+    },
+    container7: {
+      backgroundColor: '#FFFFFF',
+      alignItems: 'center',
+      justifyContent: 'center',
+      paddingVertical: 2,
+      flexDirection: 'row',
+      position: 'absolute',
+      left: '78%',
+      right: '22%',
+      top: '65%',
+      bottom: '35%',
+    },
+    container8: {
+      backgroundColor: '#FFFFFF',
+      alignItems: 'center',
+      justifyContent: 'center',
+      paddingVertical: 2,
+      flexDirection: 'row',
+      position: 'absolute',
+      left: '8%',
+      right: '72%',
+      top: '65%',
+      bottom: '35%',
+    },
+
+    buttonContainer: {
+      paddingBottom: 10,
+      paddingTop: 10,
+      backgroundColor: '#FFFFFF',
+      alignItems: 'center',
+      justifyContent: 'center',
+      paddingVertical: 2,
+      flexDirection: 'row',
+    },
+
+    buttonConfirm: {
+        alignItems: 'center',
+        backgroundColor: '#1294EF',
+        justifyContent: 'center',
+        borderRadius: 4,
+        borderColor: '#1653bc',
+        borderWidth: 1,
+        width: 340,
+        height: 60,
+      
     },
 
     sContainer: {
@@ -407,18 +526,18 @@ import Loader from '../components/loader';
     button: {
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundColor: '#8FCAF3',
+      backgroundColor: '#b3ddfc',
       borderRadius: 200,
       width: 90,
       height: 90,
-      borderColor: '#1653bc',
+      borderColor: '#000000',
       borderWidth: 1
     },
     
     //Styling for 2nd level of preference
     buttonS: {
       alignItems: 'center',
-      backgroundColor: '#1294EF',
+      backgroundColor: '#65B2EE',
       width: 105,
       height: 105
     },
@@ -426,20 +545,9 @@ import Loader from '../components/loader';
     //Styling for 3rd level of preference
     buttonT: {
       alignItems: 'center',
-      backgroundColor: '#0018A8',
+      backgroundColor: '#1294EF',
       width: 120,
       height: 120
-    },
-
-    buttonConfirm: {
-      alignItems: 'center',
-      backgroundColor: '#1294EF',
-      justifyContent: 'center',
-      borderRadius: 4,
-      borderColor: '#1653bc',
-      borderWidth: 1,
-      width: 340,
-      height: 60,
     },
 
     sliderF: {

@@ -175,8 +175,8 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
     },
 
     buttonContainer: {
-      paddingBottom: 30,
-      paddingTop: 30,
+      paddingBottom: 10,
+      paddingTop: 10,
       backgroundColor: '#FFFFFF',
       alignItems: 'center',
       justifyContent: 'center',
@@ -185,17 +185,15 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
     },
 
     button: {
-      alignItems: 'center',
-      justifyContent: 'center',
-      backgroundColor: '#1294EF',
-      borderRadius: 4,
-      width: 94,
-      height: 43,
-      position: "absolute",
-      left: 70,
-      bottom: 30,
-      borderColor: '#1653bc',
-      borderWidth: 1,
+        alignItems: 'center',
+        backgroundColor: '#1294EF',
+        justifyContent: 'center',
+        borderRadius: 4,
+        borderColor: '#1653bc',
+        borderWidth: 1,
+        width: 340,
+        height: 60,
+      
     },
 
     sliderView: {

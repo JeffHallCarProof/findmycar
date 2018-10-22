@@ -41,6 +41,7 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
       i: 0,
       responseJson: [],
     }
+    /*
     //api call
     async getHelloW(){
       const url = "https://productlab.carfax.ca/findmycar/multi/carcrash/60000/20000/33333333/6";
@@ -82,6 +83,7 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
       }
 
     };
+    */
     //go back function
     _goBack =_.throttle(() =>{ 
       this.props.navigation.navigate("Preferences")

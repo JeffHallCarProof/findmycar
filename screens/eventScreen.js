@@ -63,7 +63,7 @@ export default class eventScreen extends React.Component {
                 Reason for buying a new car
               </Text>
               <Text style={{ paddingTop: 20, paddingBottom: 20, paddingHorizontal: 50, textAlign: "center"}}>
-                Fo shizzle at fo shizzle mah nizzle fo rizzle, mah home g-dizzle dapibizzle turpis tempus i'm in the shizzle. Maurizzle pellentesque get down get down et turpizzle.
+                Fo shizzle at fo shizzle mah nizzle fo rizzle, mah home g-dizzle dapibizzle turpis tempus i'm in the shizzle.
               </Text>
             </View>
 
@@ -192,7 +192,7 @@ export default class eventScreen extends React.Component {
       justifyContent: 'center',
       paddingVertical: 2,
       flexDirection: 'row',
-      paddingBottom: 100
+      paddingBottom: 30
     },
 
     btext: {
@@ -228,22 +228,19 @@ export default class eventScreen extends React.Component {
       lineHeight: 19
     },
     button2: {
-      alignItems: 'center',
-      justifyContent: 'center',
-      backgroundColor: '#1294EF',
-      borderRadius: 4,
-      width: 100,
-      height: 50,
-      borderColor: '#1653bc',
-      borderWidth: 1,
-      position: "absolute",
-      left: 50,
-      bottom: 20
+        alignItems: 'center',
+        backgroundColor: '#1294EF',
+        justifyContent: 'center',
+        borderRadius: 4,
+        borderColor: '#1653bc',
+        borderWidth: 1,
+        width: 340,
+        height: 60,
     },
     
     button2container: {
       alignItems: 'flex-end',
-      paddingBottom: 50
+      paddingBottom: 10
     },
 
     navBar: {
@@ -272,7 +269,7 @@ export default class eventScreen extends React.Component {
       flex: 1,
       flexDirection: 'row',
       justifyContent: 'center',
-      bottom: 80,
+      bottom: 25,
     },
 
 

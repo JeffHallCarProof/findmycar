@@ -47,11 +47,12 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
             <View style={styles.iContainer}>
               <Image source={require('../assets/Guy-Hero.png')}></Image>
             </View>
-            
-
+            </View>
+          <View style={styles.container}>
             <Text style={styles.titleText}>Let us find the right car for you.</Text>
             <Text style={styles.contentText}>Lorizzle ipsizzle dolizzle sit amet, sizzle adipiscing elit. Sheezy i saw beyonces tizzles and my pizzle went crizzle velizzle, aliquet volutpizzle, suscipizzle quizzle, gravida vel, boofron.</Text>
-            <View style={styles.bContainer}>
+          </View>
+           <View style={styles.buttonContainer}>
               <TouchableHighlight
                 underlayColor={'#0018A8'}
                 style={styles.button}
@@ -62,7 +63,7 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
             </View>
           </View>
 
-        </View>
+        
 
       ); //End of return
     } //End of render
@@ -81,6 +82,7 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
     },
 
     iContainer: {
+      alignItems: "center",
       paddingTop: 30,
       height: 220,
       width: 200
@@ -91,18 +93,6 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
       alignItems: 'center',
       height: 80
     },
-
-    button: {
-      alignItems: 'center',
-      justifyContent: 'center',
-      backgroundColor: '#1294EF',
-      borderRadius: 4,
-      width: 340,
-      height: 60,
-      borderColor: '#1653bc',
-      borderWidth: 1
-    },
-
     btext: {
       color: "#FFFFFF"
     },
@@ -118,12 +108,25 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
       fontSize: 16,
       textAlign: "center"
     },
-
-    bcontainer: {
-      flex: 1,
-      backgroundColor: '#8FCAF3',
+    buttonContainer: {
+      paddingBottom: 10,
+      paddingTop: 30,
+      backgroundColor: '#FFFFFF',
       alignItems: 'center',
-      justifyContent: 'space-evenly'
-    }
+      justifyContent: 'center',
+      paddingVertical: 2,
+      flexDirection: 'row',
+    },
 
+    button: {
+        alignItems: 'center',
+        backgroundColor: '#1294EF',
+        justifyContent: 'center',
+        borderRadius: 4,
+        borderColor: '#1653bc',
+        borderWidth: 1,
+        width: 340,
+        height: 60,
+      
+    },
   });
